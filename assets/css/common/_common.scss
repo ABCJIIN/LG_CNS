@@ -1,0 +1,47 @@
+$black : #050609;
+$white : #ffffff;
+$purple: #6624D9;
+$gray06: #68696A;
+$pretendard : 'Pretendard';
+$LGEIHeadline : 'LGEIHeadline';
+$LGEIText : 'LGEIText';
+
+@mixin flexbox($direction, $justfy, $align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justfy;
+    align-items: $align;
+}
+
+*, *::before, *::after{box-sizing: border-box;}
+html{
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: $pretendard;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: $black;
+}
+
+.hide{
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+@keyframes flowRolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
