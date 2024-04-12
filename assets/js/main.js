@@ -62,20 +62,112 @@ function setFlowBanner() {
     }
 };
 
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 3400) {
+//         $(".generator").each(function(index,item){
+//             $(this).delay(index * 1000).animate({
+//                 top: '44.6%'
+//             },'1000');
+//         });
+//     };
+// });
+
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 3400) {
+//         $(".generator").each(function(index) {
+//             var delay = (index / 16) * 10000;
+
+//             $(this).delay(delay).animate({
+//                 top: '44.6%'
+//             }, '1000');
+//         });
+//     };
+// });
+
+
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 3400) {
+//         var totalElements = $(".generator").length;
+//         $(".generator").each(function(index) {
+//             // Calculate delay based on index
+//             var delay = ((totalElements - index) / totalElements) * 2000; // Adjust multiplier as needed
+
+//             $(this).delay(delay).animate({
+//                 top: '44.6%'
+//             }, 'slow');
+//         });
+//     };
+// });
+
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 3400) {
+//         $(".generator").each(function(index){
+//             // Increase delay as the index number increases
+//             var delay = index * 1000;
+
+//             // Adjust animation speed based on delay
+//             var animationSpeed = 1000 + (index * 20); // Adjust this value as needed
+            
+//             $(this).delay(delay).animate({
+//                 top: '44.6%'
+//             }, animationSpeed);
+//         });
+//     };
+// });
+
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 3400) {
+//         // Start animation for the first .generator element
+//         animateGenerator($(".generator").first(), 1000); // Initial animation speed: 1000 milliseconds
+//     }
+// });
+
+// function animateGenerator($element, animationSpeed) {
+//     // Check if there is a next .generator element
+//     var $nextElement = $element.next(".generator");
+//     if ($nextElement.length > 0) {
+//         // Animate the current .generator element
+//         $element.animate({
+//             top: '44.6%'
+//         }, animationSpeed, function() {
+//             // Once animation is completed, trigger animation for the next .generator element
+//             animateGenerator($nextElement, animationSpeed - 100); // Decrease animation speed by 100 milliseconds for each subsequent element
+//         });
+//     }
+// }
+
+
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 3400) {
+//         animateGenerators($(".generator").first(), 1500);
+//     }
+// });
+
+// function animateGenerators($element, animationSpeed) {
+//     var $nextElement = $element.next(".generator");
+//     if ($nextElement.length > 0) {
+//         $element.animate({
+//             top: '44.6%'
+//         }, animationSpeed, function() {
+//             var nextAnimationSpeed = Math.max(animationSpeed - 200, 300);
+//             animateGenerators($nextElement, nextAnimationSpeed);
+//         });
+//     }
+// }
+
+
 $(window).scroll(function(){
     if ($(this).scrollTop() > 3400) {
-        animateGenerators($(".generator").first(), 1500);
-    }
-});
+        $(".generator").each(function(index,item){
+            // Increase delay as the index number increases
+            var delay = index * 1000;
 
-function animateGenerators($element, animationSpeed) {
-    var $nextElement = $element.next(".generator");
-    if ($nextElement.length > 0) {
-        $element.animate({
-            top: '44.6%'
-        }, animationSpeed, function() {
-            var nextAnimationSpeed = Math.max(animationSpeed - 200, 500);
-            animateGenerators($nextElement, nextAnimationSpeed);
+            // Adjust animation speed based on delay
+            var animationSpeed = 1000 + (index * 200); // Adjust this value as needed
+            
+            $(this).delay(delay).animate({
+                top: '44.6%'
+            }, animationSpeed);
         });
-    }
-}
+    };
+});
