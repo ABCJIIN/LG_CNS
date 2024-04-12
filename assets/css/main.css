@@ -473,12 +473,6 @@ section.re-generator .inner .con-wrap {
   border-radius: 2rem;
   overflow: hidden;
 }
-section.re-generator .inner .con-wrap .info-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 section.re-generator .inner .con-wrap .left {
   width: 50%;
   height: 100%;
@@ -508,4 +502,10 @@ section.re-generator .inner .con-wrap .right .generator {
   top: -100%;
   left: 0;
   transform: translateY(-50%);
+}
+section.re-generator .inner .con-wrap .info-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
