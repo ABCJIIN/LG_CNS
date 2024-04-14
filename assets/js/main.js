@@ -139,6 +139,23 @@ function setFlowBanner() {
 
 // $(window).scroll(function(){
 //     if ($(this).scrollTop() > 3400) {
+//         $(".generator").each(function(index,item){
+//             // Increase delay as the index number increases
+//             var delay = index * 1000;
+
+//             // Adjust animation speed based on delay
+//             var animationSpeed = 1000 + (index * 200); // Adjust this value as needed
+            
+//             $(this).delay(delay).animate({
+//                 top: '44.6%'
+//             }, animationSpeed);
+//         });
+//     };
+// });
+
+
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 3300) {
 //         animateGenerators($(".generator").first(), 1500);
 //     }
 // });
@@ -152,22 +169,61 @@ function setFlowBanner() {
 //             var nextAnimationSpeed = Math.max(animationSpeed - 200, 300);
 //             animateGenerators($nextElement, nextAnimationSpeed);
 //         });
+//     } else if($nextElement.length === 0) {
+//         setTimeout(function(){
+//             $(".generator").css("top", "-100%");
+//         }, 3000);
 //     }
 // }
 
 
 $(window).scroll(function(){
-    if ($(this).scrollTop() > 3400) {
-        $(".generator").each(function(index,item){
-            // Increase delay as the index number increases
-            var delay = index * 1000;
+    if ($(this).scrollTop() >= 3000 && $(this).scrollTop() <= 3400) {
+        animateGenerators($(".generator").first(), 1500);
+    } else {
+        $(".generator").stop(true, true);
+        $(".generator").css("top", "-100%");
+    }
+});
 
-            // Adjust animation speed based on delay
-            var animationSpeed = 1000 + (index * 200); // Adjust this value as needed
-            
-            $(this).delay(delay).animate({
-                top: '44.6%'
-            }, animationSpeed);
+function animateGenerators($element, animationSpeed) {
+    var $nextElement = $element.next(".generator");
+    if ($nextElement.length > 0) {
+        $element.animate({
+            top: '44.6%'
+        }, animationSpeed, function() {
+            var nextAnimationSpeed = Math.max(animationSpeed - 200, 300);
+            animateGenerators($nextElement, nextAnimationSpeed);
         });
-    };
+    } else {
+        setTimeout(function(){
+            $(".generator").stop(false, false);
+            $(".generator").css("top", "-100%");
+            animateGenerators($(".generator").first(), 1500);
+        }, 2000);
+    }
+}
+
+
+
+// function animateGenerators($element, animationSpeed) {
+//     var $nextElement = $element.next(".generator");
+//     if ($nextElement.length > 0) {
+//         $element.animate({
+//             top: '44.6%'
+//         }, animationSpeed, function() {
+//             var nextAnimationSpeed = Math.max(animationSpeed - 200, 300);
+//             animateGenerators($nextElement, nextAnimationSpeed);
+//         });
+//     } else {
+//         setTimeout(function(){
+//             $(".generator").css("top", "-100%");
+//             animateGenerators($(".generator").first(), 1500);
+//         }, 2000);
+//     }
+// }
+
+$(window).scroll(function() {
+    var scrollPosition = $(window).scrollTop();
+    console.log("현재 스크롤 위치:", scrollPosition);
 });
