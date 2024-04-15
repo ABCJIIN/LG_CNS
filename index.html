@@ -6,6 +6,8 @@
     <title>LG CNS MAIN</title>
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <!-- 로컬소스 -->
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/font.css">
@@ -16,7 +18,44 @@
     <div class="wrapper">
         <div class="top-btn"></div>
         <main>
+            <div class="menu-list">
+                <ul>
+                    <li>
+                        <a href="#sec02">
+                            <img src="/assets/images/icon/ic_main.png" alt="AI Quick Tools">
+                            <span>AI Quick Tools</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sec03">
+                            <img src="/assets/images/icon/ic_main02.png" alt="Digital Content Creator">
+                            <span>Digital Content<br>Creator</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sec04">
+                            <img src="/assets/images/icon/ic_main03.png" alt="Ads Creator">
+                            <span>Ads Creator</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sec05">
+                            <img src="/assets/images/icon/ic_main04.png" alt="Re-Generator">
+                            <span>Re-Generator</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sec06">
+                            <img src="/assets/images/icon/ic_main05.png" alt="Campaign Optimizer">
+                            <span>Campaign<br>Optimizer</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <section class="intro">
+                <div class="circle-bg green"></div>
+                <div class="circle-bg pink"></div>
+                <div class="circle-bg purple"></div>
                 <div class="inner">
                     <div class="login-wrap">
                         <h1>
@@ -43,40 +82,6 @@
                         <p>생성형 AI와 디자인 편집으로 쉽고 빠르게 고품질 마케팅 콘텐츠를 제작하고<br>자동 콘텐츠 최적화로 마케팅 프로세스를 개선하세요.</p>
                         <strong class="bg-txt">COP</strong>
                     </div>
-                    <div class="menu-list">
-                        <ul>
-                            <li>
-                                <a href="#sec02">
-                                    <img src="/assets/images/icon/ic_main.png" alt="AI Quick Tools">
-                                    <span>AI Quick Tools</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#sec03">
-                                    <img src="/assets/images/icon/ic_main02.png" alt="Digital Content Creator">
-                                    <span>Digital Content<br>Creator</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#sec04">
-                                    <img src="/assets/images/icon/ic_main03.png" alt="Ads Creator">
-                                    <span>Ads Creator</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#sec05">
-                                    <img src="/assets/images/icon/ic_main04.png" alt="Re-Generator">
-                                    <span>Re-Generator</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#sec06">
-                                    <img src="/assets/images/icon/ic_main05.png" alt="Campaign Optimizer">
-                                    <span>Campaign<br>Optimizer</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </section>
             <section class="ai-quick-tools">
@@ -88,15 +93,31 @@
                         <button class="use-btn" type="button">사용해보기</button>
                     </div>
                     <div class="con-wrap">
+                        <div class="animate-cursor"></div>
                         <div class="left">
                             <div class="item"></div>
                         </div>
                         <div class="right">
                             <div class="right-top">
-                                <div class="item"></div>
+                                <div class="drag-area"></div>
+                                <div class="drag-wrap">
+                                    <img src="/assets/images/cns/airplane.png" alt="Ai 생성 비행기">
+                                </div>
+                                <div class="typing-wrap">
+                                    <p class="typing-txt">'비행기'</p>
+                                    <p class="typing"></p>
+                                    <button type="button"></button>
+                                </div>
+                                <!-- <canvas id="realDragArea" width="748px" height="297px"></canvas> -->
                             </div>
                             <div class="right-bottom">
-                                <div class="item"></div>
+                                <div class="hide-bg">
+                                    <div class="show-bg">
+                                        <span class="circle top"></span>
+                                        <span class="circle bottom-right"></span>
+                                        <span class="circle bottom-left"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="carrier">
@@ -231,44 +252,236 @@
                         <button class="use-btn" type="button">사용해보기</button>
                     </div>
                     <div class="con-wrap">
-
+                        <div class="graph type01">
+                            <div class="tit">채널 그래프</div>
+                            <div class="con-wrap">
+                                <div class="num-wrap">
+                                    <ul>
+                                        <li>
+                                            <span>채널 1</span>
+                                            <strong><span>63</span>%</strong>
+                                        </li>
+                                        <li>
+                                            <span>채널 2</span>
+                                            <strong><span>25</span>%</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="chart-wrap">
+                                    <canvas id="doughnut-chart" width="133" height="133"></canvas>
+                                    <span>채널</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="graph type02">
+                            <div class="tit">디바이스 그래프</div>
+                            <div class="con-wrap">
+                                <div class="num-wrap">
+                                    <ul>
+                                        <li>
+                                            <span>디바이스 1</span>
+                                            <strong><span>63</span>%</strong>
+                                        </li>
+                                        <li>
+                                            <span>디바이스 2</span>
+                                            <strong><span>25</span>%</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="chart-wrap">
+                                    <canvas id="doughnut-chart02" width="133px" height="133px"></canvas>
+                                    <span>디바이스</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="total">
+                            <div class="tit">총 노출수</div>
+                            <div class="count">
+                                <strong><span class="num">133</span>만</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-        </main>
-        <div class="apply">
+            <div class="apply">
+                <div class="inner">
+                    <div class="txt-wrap">
+                        <p class="tit">우리 서비스에도 도움이 될까? <strong>부담 없이 문의 하세요!</strong></p>
+                        <p class="contact">계정문의는 <a href="mailto:lgcns1323@lgcns.com">lgcns1323@lgcns.com</a></p>
+                    </div>
+                    <div class="img-wrap">
+                        <img src="/assets/images/icon/ic_account_ask.png" alt="계정문의 바로가기 아이콘">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
             <div class="inner">
-                <div class="txt-wrap">
-                    <p class="tit">우리 서비스에도 도움이 될까? <strong>부담 없이 문의 하세요!</strong></p>
-                    <p class="contact">계정문의는 <a href="mailto:lgcns1323@lgcns.com">lgcns1323@lgcns.com</a></p>
+                <div class="left">
+                    <div class="logo-wrap">
+                        <img src="/assets/images/icon/logo_white.png" alt="COP logo white">
+                    </div>
+                    <div class="info-wrap">
+                        <ul>
+                            <li>이용약관</li>
+                            <li>도입문의</li>
+                        </ul>
+                        <p>서울시 강서구 마곡중앙8로 71  LG 사이언스파크 E13, E14</p>
+                    </div>
                 </div>
-                <div class="img-wrap">
-                    <img src="/assets/images/icon/ic_account_ask.png" alt="계정문의 바로가기 아이콘">
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div class="inner">
-            <div class="left">
-                <div class="logo-wrap">
-                    <img src="/assets/images/icon/logo_white.png" alt="COP logo white">
-                </div>
-                <div class="info-wrap">
-                    <ul>
-                        <li>이용약관</li>
-                        <li>도입문의</li>
-                    </ul>
-                    <p>서울시 강서구 마곡중앙8로 71  LG 사이언스파크 E13, E14</p>
+                <div class="right">
+                    <div class="contact">
+                        <span>질문이 있으신가요?</span>
+                        <p><a href="tel:01-234-4567">01-234-4567</a> (수신자 부담)</p>
+                    </div>
                 </div>
             </div>
-            <div class="right">
-                <div class="contact">
-                    <span>질문이 있으신가요?</span>
-                    <p><a href="tel:01-234-4567">01-234-4567</a>(수신자 부담)</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
+        </main>
+    <script>
+        window.onload = function(){
+
+            window.scrollTo(0, 0);
+
+            const elm = document.querySelectorAll('section');
+            const elmCount = elm.length;
+
+            elm.forEach(function(item, index){
+            item.addEventListener('mousewheel', function(event){
+            event.preventDefault();
+            let delta = 0;
+
+            if (!event) event = window.event;
+            if (event.wheelDelta) {
+                delta = event.wheelDelta / 120;
+                if (window.opera) delta = -delta;
+            } 
+            else if (event.detail)
+                delta = -event.detail / 3;
+
+            let moveTop = window.scrollY;
+            let elmSelector = elm[index];
+
+          // wheel down : move to next section
+            if (delta < 0){
+                if (elmSelector !== elmCount-1){
+                    try{
+                        moveTop = window.pageYOffset + elmSelector.nextElementSibling.getBoundingClientRect().top;
+                    }catch(e){}
+                }
+            }
+          // wheel up : move to previous section
+            else{
+                if (elmSelector !== 0){
+                    try{
+                        moveTop = window.pageYOffset + elmSelector.previousElementSibling.getBoundingClientRect().top;
+                }catch(e){}
+            }
+        }
+                const body = document.querySelector('html');
+                window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
+            });
+        });
+
+        //커스텀 셀렉트
+        function selectCustom(){
+            $(document).on('click', '.select-item', function(e){
+                e.preventDefault();
+                if($(this).hasClass('on') == true){
+                    $(this).removeClass('on');
+                    $(this).siblings('.option-list').slideUp();
+                }else{
+                    $('.select-item').removeClass('on').next('.option-list').slideUp();
+                    $(this).addClass('on');
+                    $(this).siblings('.option-list').slideDown();
+                }
+            });
+
+            $(document).on('click', '.option-list li', function(e){
+                e.preventDefault();
+                var value = $(this).html();
+                $(this).parents('.option-list').siblings('.select-item').html(value);
+                $(this).parents('.option-list').slideUp().siblings('.select-item').removeClass('on');
+                $(this).parents('.option-list').siblings('.direct-input').removeClass('on');
+            });
+
+            $(document).on('click', '.option-list li.direct', function(e){
+                e.preventDefault();
+                $(this).parents('.option-list').slideUp().siblings('.select-item').removeClass('on');
+                $(this).parents('.option-list').siblings('.direct-input').addClass('on');
+            });
+
+        }selectCustom();
+
+        // 롤링배너
+        function setFlowBanner() {
+            let bannerWrap = $('.flow-banner');
+            let bannerList = $('.flow-banner .list');
+            let bannerWrapWidth = bannerWrap.width();
+            let bannerListWidth = bannerList.width();
+            const speed = 90;//1초에 몇 픽셀 이동하는지 설정
+
+            //리스트 복제
+            let clone = bannerList.clone();
+            bannerWrap.append(clone);
+            flowBannerAct()
+
+            //배너 실행 함수
+            function flowBannerAct() {
+                //무한 반복을 위해 리스트를 복제 후 배너에 추가
+                if (bannerListWidth < bannerWrapWidth) {
+                    const listCount = Math.ceil(bannerWrapWidth * 2 / bannerListWidth);
+                    for(let i = 2; i < listCount; i++) {
+                        clone = bannerList.clone();
+                        bannerWrap.append(clone);
+                    }
+                }
+                bannerWrap.find('.list').css({
+                    'animation':`${bannerListWidth / speed}s linear infinite flowRolling`
+                });
+            }
+        }setFlowBanner();
+
+        //AI Quick Tools
+        $(window).scroll(function(){
+            if($(this).scrollTop() >= 320 && $(this).scrollTop() <= 957 ) {
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '10rem',
+                },1000, function(){
+                    $('.ai-quick-tools .animate-cursor').addClass("click-motion");
+                    $('.ai-quick-tools .left').delay(500).addClass("motion");
+                });
+                $('.ai-quick-tools .animate-cursor').animate({
+                        top: '92%',
+                        left: '68%',
+                },2000, function(){
+                    $('.ai-quick-tools .show-bg').addClass('on');
+                    $('.ai-quick-tools .show-bg').animate({
+                        width: '100%',
+                        height: '100%',
+                    },1100)
+                });
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '97%',
+                    left: '98%',
+                },1100);
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '2%',
+                    left: '60%',
+                },1000);
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '24%',
+                    left: '97%',
+                },1000, function(){
+                    // $('.ai-quick-tools .drag-wrap').addClass('on');
+                    $('.ai-quick-tools .drag-wrap').animate({
+                        width: '40.2rem',
+                        height: '13.6rem',
+                    },1000)
+                })
+            };
+        });
+    };
+    </script>
 </body>
 </html>
