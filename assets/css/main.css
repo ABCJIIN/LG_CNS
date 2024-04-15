@@ -20,7 +20,8 @@ body {
   overflow: hidden;
   position: absolute;
   clip: rect(0, 0, 0, 0);
-  clip-path: polygon(0 0, 0 0, 0 0);
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
+          clip-path: polygon(0 0, 0 0, 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -305,7 +306,8 @@ body {
   font-weight: 700;
   background: linear-gradient(#fff 20%, transparent 80%);
   color: transparent;
-  background-clip: text;
+  -webkit-background-clip: text;
+          background-clip: text;
 }
 .wrapper main section.ai-quick-tools {
   background: url(/assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
@@ -420,7 +422,8 @@ body {
   border: 2px solid #fff;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   opacity: 0;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top .typing-wrap.on {
@@ -454,6 +457,7 @@ body {
   height: 50%;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg {
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -464,29 +468,42 @@ body {
   background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat top left;
   border-radius: 0 0 12px 0;
 }
-.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg.on {
-  border-right: 8px solid #6624D9;
-  border-bottom: 8px solid #6624D9;
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg-on {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 462px;
+  height: 310px;
+  border-radius: 0 0 12px 0;
+  opacity: 0;
 }
-.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg.on .circle {
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg-on .circle {
   position: absolute;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   background: #fff;
   border: 8px solid #6624D9;
+  z-index: 10;
 }
-.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg.on .circle.top {
-  right: -20px;
-  top: -18px;
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg-on .circle.top {
+  right: 8px;
+  top: 4px;
 }
-.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg.on .circle.bottom-right {
-  right: -20px;
-  bottom: -18px;
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg-on .circle.bottom-right {
+  right: 8px;
+  bottom: 12px;
 }
-.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg.on .circle.bottom-left {
-  left: -16px;
-  bottom: -18px;
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg .show-bg-on .circle.bottom-left {
+  left: 6px;
+  bottom: 12px;
+}
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg.on .show-bg {
+  border-right: 8px solid #6624D9;
+  border-bottom: 8px solid #6624D9;
+}
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-bottom .hide-bg.on .show-bg-on {
+  opacity: 1;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .carrier {
   position: absolute;
@@ -537,7 +554,8 @@ body {
 .wrapper main section.ads-creator .inner .flow-banner .list li img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .wrapper main section.ads-creator .inner .flow-banner .list li.flow-item01 {
   width: 33.2rem;
@@ -616,7 +634,8 @@ body {
   align-items: center;
   border: 2px solid rgba(191, 191, 191, 0.94);
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
 }
 .wrapper main section.re-generator .inner .con-wrap .right {
   position: relative;
@@ -906,7 +925,8 @@ footer .inner .right .contact p a {
   width: 100%;
   height: 100%;
   border-radius: 2rem;
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   background: rgba(5, 6, 9, 0.7);
   display: flex;
   flex-direction: row;

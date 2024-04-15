@@ -108,11 +108,11 @@
                                     <p class="typing"></p>
                                     <button type="button"></button>
                                 </div>
-                                <!-- <canvas id="realDragArea" width="748px" height="297px"></canvas> -->
                             </div>
                             <div class="right-bottom">
                                 <div class="hide-bg">
-                                    <div class="show-bg">
+                                    <div class="show-bg"></div>
+                                    <div class="show-bg-on">
                                         <span class="circle top"></span>
                                         <span class="circle bottom-right"></span>
                                         <span class="circle bottom-left"></span>
@@ -443,9 +443,51 @@
         }setFlowBanner();
 
         //AI Quick Tools
-        $(window).scroll(function(){
-            if($(this).scrollTop() >= 320 && $(this).scrollTop() <= 957 ) {
-                $('.ai-quick-tools .animate-cursor').animate({
+        // $(window).scroll(function(){
+        //     if($(this).scrollTop() >= 320 && $(this).scrollTop() <= 957 ) {
+        //         $('.ai-quick-tools .animate-cursor').animate({
+        //             top: '10rem',
+        //         },1000, function(){
+        //             $('.ai-quick-tools .animate-cursor').addClass("click-motion");
+        //             $('.ai-quick-tools .left').delay(500).addClass("motion");
+        //         });
+        //         $('.ai-quick-tools .animate-cursor').animate({
+        //                 top: '92%',
+        //                 left: '68%',
+        //         },2000, function(){
+        //             $('.ai-quick-tools .show-bg').addClass('on');
+        //             $('.ai-quick-tools .show-bg').animate({
+        //                 width: '100%',
+        //                 height: '100%',
+        //             },1100)
+        //         });
+        //         $('.ai-quick-tools .animate-cursor').animate({
+        //             top: '97%',
+        //             left: '98%',
+        //         },1100);
+        //         $('.ai-quick-tools .animate-cursor').animate({
+        //             top: '2%',
+        //             left: '60%',
+        //         },1000);
+        //         $('.ai-quick-tools .animate-cursor').animate({
+        //             top: '24%',
+        //             left: '97%',
+        //         },1000, function(){
+        //             // $('.ai-quick-tools .drag-wrap').addClass('on');
+        //             $('.ai-quick-tools .drag-wrap').animate({
+        //                 width: '40.2rem',
+        //                 height: '13.6rem',
+        //             },1000)
+        //         })
+        //     };
+        // });
+        var hideBgWidth = $('.ai-quick-tools .hide-bg').innerWidth();
+        var finalWidth = hideBgWidth + 4 * parseFloat($('body').css('font-size')) + 'px';
+
+        var hideBgHeight = $('.ai-quick-tools .hide-bg').innerHeight();
+        var finalHeight = hideBgHeight + 4 * parseFloat($('body').css('font-size')) + 'px';
+
+        $('.ai-quick-tools .animate-cursor').animate({
                     top: '10rem',
                 },1000, function(){
                     $('.ai-quick-tools .animate-cursor').addClass("click-motion");
@@ -455,11 +497,32 @@
                         top: '92%',
                         left: '68%',
                 },2000, function(){
-                    $('.ai-quick-tools .show-bg').addClass('on');
+                    $('.ai-quick-tools .hide-bg').addClass('on');
+                    $('.ai-quick-tools .animate-cursor').removeClass("click-motion");
                     $('.ai-quick-tools .show-bg').animate({
                         width: '100%',
-                        height: '100%',
-                    },1100)
+                        height: '100%'
+                    }, {
+                        duration: 1100,
+                        start : function () {
+                            $('.ai-quick-tools .show-bg-on').animate({
+                                width: finalWidth,
+                                height: finalHeight
+                            },1100);
+                            $('.ai-quick-tools .show-bg-on .circle.top').animate({
+                                top: '5px',
+                                right: '32px'
+                            },1100);
+                            $('.ai-quick-tools .show-bg-on .circle.bottom-right').animate({
+                                bottom: '32px',
+                                right: '32px'
+                            },1100);
+                            $('.ai-quick-tools .show-bg-on .circle.bottom-left').animate({
+                                bottom: '32px',
+                                left: '6px'
+                            },1100);
+                        }
+                    });
                 });
                 $('.ai-quick-tools .animate-cursor').animate({
                     top: '97%',
@@ -468,19 +531,39 @@
                 $('.ai-quick-tools .animate-cursor').animate({
                     top: '2%',
                     left: '60%',
-                },1000);
+                });
                 $('.ai-quick-tools .animate-cursor').animate({
-                    top: '24%',
-                    left: '97%',
+                    top: '23%',
+                    left: '94%',
+                }, {
+                    duration: 1000,
+                    start : function() {
+                        $('.ai-quick-tools .drag-wrap').animate({
+                            width: '40.2rem',
+                            height: '13.6rem'
+                        }, 1000, function(){
+                            $('.ai-quick-tools .typing-wrap').addClass('on');
+                        });
+                    }
+                });
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '35%',
+                    left: '64%',
                 },1000, function(){
-                    // $('.ai-quick-tools .drag-wrap').addClass('on');
-                    $('.ai-quick-tools .drag-wrap').animate({
-                        width: '40.2rem',
-                        height: '13.6rem',
-                    },1000)
+                    $('.ai-quick-tools .animate-cursor').addClass("click-motion");
                 })
-            };
-        });
+
+
+
+                // $('.ai-quick-tools .animate-cursor').animate({
+                //     top: '24%',
+                //     left: '97%',
+                // },1000, function(){
+                //     $('.ai-quick-tools .drag-wrap').animate({
+                //         width: '40.2rem',
+                //         width: '40.2rem',
+                //     },1000)
+                // })
     };
     </script>
 </body>
