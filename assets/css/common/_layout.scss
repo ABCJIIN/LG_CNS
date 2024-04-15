@@ -61,6 +61,37 @@
             }
         }
     }
+    .apply {
+        background: $purple;
+        .inner {
+            padding: .8rem 0 .8rem 10%;
+            @include flexbox(row, center, center);
+            gap: 4rem;
+            .txt-wrap {
+                @include flexbox(column, center, center);
+                gap: 1.4rem;
+                .tit {
+                    font-size: 3rem;
+                    color: #E9DDFF;
+                    letter-spacing: -0.3px;
+                    strong {
+                        color: #F1E9FF;
+                        font-weight: 700;
+                    }
+                }
+                .contact {
+                    color: $white;
+                    font-size: 2rem;
+                    font-weight: 500;
+                    letter-spacing: -0.2px;
+                    a {
+                        color: #BDFF00;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .menu-list {
@@ -440,6 +471,18 @@ section {
                     left: 50%;
                     transform: translate(-50%, -50%);
                 }
+            }
+        }
+    }
+    &.campaign-optimizer {
+        .inner {
+            .con-wrap {
+                position: absolute;
+                bottom: 0;
+                right: 12.2rem;
+                width: 108.8rem;
+                height: 58.7rem;
+                background: url(/assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
             }
         }
     }

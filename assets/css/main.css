@@ -94,6 +94,43 @@ body {
 .wrapper main section .inner .info-wrap.white .use-btn:hover {
   background: #F6F6F6;
 }
+.wrapper .apply {
+  background: #6624D9;
+}
+.wrapper .apply .inner {
+  padding: 0.8rem 0 0.8rem 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.wrapper .apply .inner .txt-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+.wrapper .apply .inner .txt-wrap .tit {
+  font-size: 3rem;
+  color: #E9DDFF;
+  letter-spacing: -0.3px;
+}
+.wrapper .apply .inner .txt-wrap .tit strong {
+  color: #F1E9FF;
+  font-weight: 700;
+}
+.wrapper .apply .inner .txt-wrap .contact {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+.wrapper .apply .inner .txt-wrap .contact a {
+  color: #BDFF00;
+  text-decoration: underline;
+}
 
 .menu-list {
   width: 100rem;
@@ -508,4 +545,12 @@ section.re-generator .inner .con-wrap .info-wrap {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+section.campaign-optimizer .inner .con-wrap {
+  position: absolute;
+  bottom: 0;
+  right: 12.2rem;
+  width: 108.8rem;
+  height: 58.7rem;
+  background: url(/assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
 }
