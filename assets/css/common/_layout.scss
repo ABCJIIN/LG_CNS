@@ -59,6 +59,694 @@
                     }
                 }
             }
+            &.intro {
+                padding-top: 2.9rem;
+                overflow: hidden;
+                .circle-bg {
+                    position: absolute;
+                    border-radius: 50%;
+                    &.green {
+                        left: 0;
+                        bottom: -20rem;
+                        width: 54.9rem;
+                        height: 78.7rem;
+                        background: rgba(38, 172, 158, 0.70);
+                        filter: blur(200px);
+                        z-index: -2;
+                    }
+                    &.pink {
+                        left: 40%;
+                        bottom: -20rem;
+                        width: 79.1rem;
+                        height: 77.7rem;
+                        background: linear-gradient(180deg, #FFD8FC 0%, #FF9559 100%);
+                        filter: blur(200px);
+                        z-index: -1;
+                    }
+                    &.purple {
+                        right: -30rem;
+                        bottom: -20rem;
+                        width: 66.8rem;
+                        height: 66.8rem;
+                        background: rgba(102, 36, 217, 0.70);
+                        filter: blur(200px);
+                        z-index: -2;
+                    }
+                }
+                .login-wrap {
+                    width: calc(100% - 2rem);
+                    max-width: 1720px;
+                    margin: 0 auto;
+                    padding: 1.6rem 4rem;
+                    border-radius: 2rem;
+                    background: $white;
+                    box-shadow: 0px 15px 38px 10px rgba(0, 0, 0, 0.07);
+                    @include flexbox(row, space-between, center);
+                    .user-area {
+                        @include flexbox(row, center, center);
+                        gap: .8rem;
+                        .btn-wrap {
+                            @include flexbox(row, center, center);
+                            gap: .8rem;
+                            button {
+                                font-family: $pretendard;
+                                width: 12rem;
+                                height: 4.8rem;
+                                font-size: 2rem;
+                                border-radius: .8rem;
+                                transition: background .25s;
+                                &.login-btn {
+                                    font-weight: 800;
+                                    color: $purple;
+                                    border: 1px solid $purple;
+                                    background: $white;
+                                    &:hover {
+                                        color: #8450E0;
+                                        border-color: #8450E0;
+                                    }
+                                    &:active {
+                                        color: #3D1682;
+                                        border-color: #3D1682;
+                                    }
+                                }
+                                &.inquiry-btn {
+                                    font-weight: 700;
+                                    color: $white;
+                                    background: $purple;
+                                    letter-spacing: -0.12px;
+                                    &:hover {
+                                        background: #8450E0;
+                                    }
+                                    &:active {
+                                        background: #3D1682;
+                                    }
+                                }
+                            }
+                        }
+                        .select-box {
+                            position: relative;
+                            width: 10rem;
+                            height: 4.8rem;
+                            z-index: 10;
+                            cursor: pointer;
+                            .select-item {
+                                width: 100%;
+                                height: 100%;
+                                padding: 0;
+                                font-family: $pretendard;
+                                color: $gray06;
+                                font-weight: 700;
+                                font-size: 2rem;
+                                border: none;
+                                border-radius: .8rem;
+                                background: $white;
+                                @include flexbox(row, center, center);
+                                gap: .3rem;
+                                transition: background .25s;
+                                &::after {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 2.4rem;
+                                    height: 2.4rem;
+                                    background: url(/assets/images/icon/ic_arrow.png) no-repeat center/contain;
+                                    transition: all .25s;
+                                }
+                                &.on{
+                                    &::after{
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                                &:hover {
+                                    background: #F6F6F6;
+                                }
+                                &:active {
+                                    background: #E6E6E6;
+                                }
+                            }
+                            .option-list {
+                                position: absolute;
+                                top: 5.2rem;
+                                width: 100%;
+                                border-radius: 0.8rem;
+                                box-shadow: 0px 31px 38px 0px rgba(0, 0, 0, 0.07);
+                                background: $white;
+                                display: none;
+                                li {
+                                    width: 100%;
+                                    height: 4.8rem;
+                                    a {
+                                        width: 100%;
+                                        height: 100%;
+                                        font-size: 2rem;
+                                        font-weight: 500;
+                                        color: $gray06;
+                                        @include flexbox(row, center, center);
+                                        transition: all .25s;
+                                    }
+                                    &:hover {
+                                        a {
+                                            background: #F6F6F6;
+                                        }
+                                    }
+                                    &:active {
+                                        a {
+                                            background: #E6E6E6;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .con-wrap {
+                    width: 100%;
+                    margin-top: 10rem;
+                    @include flexbox(column, center, center);
+                    h2 {
+                        font-family: $LGEIHeadline;
+                        font-weight: 800;
+                        font-size: 15rem;
+                        letter-spacing: -1.5px;
+                    }
+                    p {
+                        font-size: 2rem;
+                        text-align: center;
+                        line-height: 1.4;
+                    }
+                    .bg-txt {
+                        font-family: $LGEIHeadline;
+                        font-size: 40rem;
+                        font-weight: 700;
+                        // opacity: .6;
+                        background: linear-gradient(#fff 20%, transparent 80%);
+                        color: transparent;
+                        background-clip: text;
+                    }
+                }
+            }
+            &.ai-quick-tools {
+                background: url(/assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
+                .inner {
+                    @include flexbox(row, center, center);
+                    gap: 7.9rem;
+                    .info-wrap {
+                        text-align: left;
+                    }
+                    .con-wrap {
+                        position: relative;
+                        height: 60.7rem;
+                        @include flexbox(row, center, center);
+                        gap: 1.2rem;
+                        .animate-cursor {
+                            position: absolute;
+                            top: 0rem;
+                            left: 12rem;
+                            width: 12rem;
+                            height: 12rem;
+                            background: url(/assets/images/icon/ic-cursors.png) no-repeat center/contain;
+                            z-index: 20;
+                            &.click-motion {
+                                animation: animateCursor .3s;
+                            }
+                        }
+                        .left {
+                            position: relative;
+                            width: 32.6rem;
+                            height: 100%;
+                            border-radius: 1.2rem;
+                            .item {
+                                width: 100%;
+                                height: 100%;
+                                background: url(/assets/images/common/ai_quick_tools_left.png) no-repeat center/cover;
+                            }
+                            &.motion {
+                                .item {
+                                    background: url(/assets/images/common/left_remove.png) no-repeat center/cover;
+                                }
+                            }
+                        }
+                        .right {
+                            height: 100%;
+                            @include flexbox(column, flex-start, flex-start);
+                            gap: 1.2rem;
+                            .right-top {
+                                position: relative;
+                                width: 74.7rem;
+                                height: 50%;
+                                background: url(/assets/images/common/ai_quick_tools_top.png) no-repeat center/cover;
+                                .drag-area {
+                                    position: absolute;
+                                    left: calc(100% - 42.3rem);
+                                    top: 21px;
+                                    width: 40.2rem;
+                                    height: 13.6rem;
+                                    border: 2px solid #6624D9;
+                                    background: rgba(255,255,255,0.3);
+                                    animation: dragE 3s ease infinite;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    display: none;
+                                    &.on {
+                                        display: block;
+                                    }
+                                }
+                                .drag-wrap {
+                                    position: absolute;
+                                    top: 21px;
+                                    // right: 21px;
+                                    left: 40%;
+                                    width: 0;
+                                    height: 0;
+                                    // width: 40.2rem;
+                                    // height: 13.6rem;
+                                    border: 8px dashed #6624D9;
+                                    @include flexbox(row, center, center);
+                                    // opacity: 0;
+                                    img {
+                                        display: none;
+                                        &.on {
+                                            display: block;
+                                        }
+                                    }
+                                    &.on {
+                                        opacity: 1;
+                                    }
+                                }
+                                .typing-wrap {
+                                    position: absolute;
+                                    right: 18px;
+                                    bottom: 18px;
+                                    width: 406px;
+                                    height: 105px;
+                                    padding: 34px 36px;
+                                    font-size: 3.2rem;
+                                    font-weight: 700;
+                                    color: #14072B;
+                                    border: 2px solid #fff;
+                                    border-radius: 14px;
+                                    background: rgba(255,255,255,0.3);
+                                    backdrop-filter: blur(5px);
+                                    opacity: 0;
+                                    &.on {
+                                        // display: block;
+                                        opacity: 1;
+                                        z-index: 10;
+                                    }
+                                    .typing-txt {
+                                        display: none;
+                                    }
+                                    .typing {
+                                        display: inline-block;
+                                        animation: cursorTyping 0.7s infinite;
+                                    }
+                                    button {
+                                        position: absolute;
+                                        bottom: 21px;
+                                        right: 36px;
+                                        width: 6rem;
+                                        height: 6rem;
+                                        border-radius: 50%;
+                                        border: none;
+                                        background: url(/assets/images/cns/top_arrow.png) no-repeat center/contain #6624D9;
+                                        // animation: blink 2s infinite;
+                                    }
+                                }
+                                #realDragArea {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                }
+                            }
+                            .right-bottom {
+                                width: 74.7rem;
+                                height: 50%;
+                                .hide-bg {
+                                    width: 100%;
+                                    height: 100%;
+                                    .show-bg {
+                                        position: relative;
+                                        width: 422px;
+                                        height: 270px;
+                                        background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat top left;
+                                        border-radius: 0 0 12px 0;
+                                        &.on {
+                                            border-right: 8px solid #6624D9;
+                                            border-bottom: 8px solid #6624D9;
+                                            .circle {
+                                                position: absolute;
+                                                width: 32px;
+                                                height: 32px;
+                                                border-radius: 50%;
+                                                background: #fff;
+                                                border: 8px solid #6624D9;
+                                                &.top {
+                                                    right: -20px;
+                                                    top: -18px;
+                                                }
+                                                &.bottom-right {
+                                                    right: -20px;
+                                                    bottom: -18px;
+                                                }
+                                                &.bottom-left {
+                                                    left: -16px;
+                                                    bottom: -18px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                // .item {
+                                //     width: 100%;
+                                //     height: 100%;
+                                //     background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat center/cover;
+                                // }
+                            }
+                        }
+                        .carrier {
+                            position: absolute;
+                            bottom: 4.7rem;
+                            left: 15.6rem;
+                        }
+                    }
+                }
+            }
+            // &.digital-content-creator {
+        
+            // }
+            &.ads-creator {
+                background: #F2F2F2;
+                .inner {
+                    @include flexbox(column, flex-end, center);
+                    gap: 4.2rem;
+                    padding-bottom: 2rem;
+                    .info-wrap {
+                        text-align: center;
+                    }
+                    .flow-banner {
+                        position: relative;
+                        width: 100%;
+                        height: auto;
+                        // padding: 3rem 0;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: flex-end;
+                        background: transparent;
+                        .list {
+                            height: 100%;
+                            @include flexbox(row, center, flex-end);
+                            li {
+                                white-space: nowrap;
+                                width: 100%;
+                                height: 100%;
+                                padding: 0;
+                                margin: 0 0.7rem;
+                                @include flexbox(row, flex-end, flex-end);
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                }
+                                &.flow-item01 {
+                                    width: 33.2rem;
+                                    height: 50.6rem;
+                                }
+                                &.flow-item02 {
+                                    width: 50.8rem;
+                                    height: 26.5rem;
+                                }
+                                &.flow-item03 {
+                                    width: 33.9rem;
+                                    height: 41.3rem;
+                                }
+                                &.flow-item04 {
+                                    width: 30.7rem;
+                                    height: 20.8rem;
+                                }
+                                &.flow-item05 {
+                                    width: 28.9rem;
+                                    height: 50.8rem;
+                                }
+                                &.flow-item06 {
+                                    width: 50.8rem;
+                                    height: 26.5rem;
+                                }
+                                &.flow-item07 {
+                                    width: 28.9rem;
+                                    height: 50.8rem;
+                                }
+                                &.flow-item08 {
+                                    width: 30.7rem;
+                                    height: 20.8rem;
+                                }
+                                &.flow-item09 {
+                                    width: 33.9rem;
+                                    height: 41.3rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.re-generator {
+                background: $black;
+                .inner {
+                    width: calc(100% - 2rem);
+                    margin: 0 auto;
+                    @include flexbox(row, center, center);
+                    .con-wrap {
+                        position: relative;
+                        width: 100%;
+                        max-width: 1521px;
+                        height: 100%;
+                        max-height: 723px;
+                        @include flexbox(row, center, center);
+                        gap: 0;
+                        border-radius: 2rem;
+                        overflow: hidden;
+                        .left {
+                            width: 50%;
+                            height: 100%;
+                            background: url(/assets/images/common/generator_left_bg.png) no-repeat right;
+                            .seed-image {
+                                width: 18rem;
+                                height: 6rem;
+                                margin: 2.4rem;
+                                border-radius: 1.4rem;
+                                @include flexbox(row, center, center);
+                                border: 2px solid rgba(191, 191, 191, 0.94);
+                                background: rgba(255, 255, 255, 0.30);
+                                backdrop-filter: blur(6px);
+                            }
+                        }
+                        .right {
+                            position: relative;
+                            width: 50%;
+                            height: 100%;
+                            background: url(/assets/images/common/generator_bg01.png) no-repeat left;
+                            .generator {
+                                position: absolute;
+                                top: -100%;
+                                left: 0;
+                                transform: translateY(-50%);
+                            }
+                        }
+                        .info-wrap {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+            }
+            &.campaign-optimizer {
+                .inner {
+                    .info-wrap {
+                        p {
+                            margin: 2.4rem 0 4rem;
+                        }
+                    }
+                    > .con-wrap {
+                        position: absolute;
+                        bottom: 0;
+                        right: 12.2rem;
+                        width: 108.8rem;
+                        height: 58.7rem;
+                        background: url(/assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
+                        .graph {
+                            position: absolute;
+                            min-width: 27.2rem;
+                            min-height: 22.7rem;
+                            padding: 1.8rem 2.8rem 3.2rem 1.5rem;
+                            border-radius: 0.47rem;
+                            background: $white;
+                            box-shadow: 40px 31px 38px 0px rgba(0, 0, 0, 0.15);
+                            > .tit {
+                                font-size: 1.3rem;
+                                font-weight: 700;
+                                letter-spacing: -0.078px;
+                                margin-bottom: 2.9rem;
+                                color: $black;
+                            }
+                            > .con-wrap {
+                                @include flexbox(row, space-between, center);
+                                .num-wrap {
+                                    ul {
+                                        @include flexbox(column, center, center);
+                                        gap: 2.4rem;
+                                        li {
+                                            @include flexbox(column, center, flex-start);
+                                            gap: 0.6rem;
+                                            > span {
+                                                font-size: 0.7rem;
+                                                color: #68696A;
+                                            }
+                                            strong {
+                                                font-size: 1.4rem;
+                                                font-weight: 500;
+                                                span {
+                                                    font-size: 2.4rem;
+                                                    font-weight: 800;
+                                                }
+                                            }
+                                            &:first-child {
+                                                > span {
+                                                    &::before {
+                                                        content: '';
+                                                        display: inline-block;
+                                                        width: 7px;
+                                                        height: 7px;
+                                                        border-radius: .24rem;
+                                                        margin-right: .35rem;
+                                                    }
+                                                }
+                                            }
+                                            &:last-child {
+                                                > span {
+                                                    &::before {
+                                                        content: '';
+                                                        display: inline-block;
+                                                        width: 7px;
+                                                        height: 7px;
+                                                        border-radius: .24rem;
+                                                        margin-right: .35rem;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .chart-wrap {
+                                    position: relative;
+                                    span {
+                                        position: absolute;
+                                        top: 53%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        font-size: 1.3rem;
+                                        font-weight: 700;
+                                        letter-spacing: -0.078px;
+
+                                    }
+                                }
+                            }
+                            &.type01 {
+                                left: -11rem;
+                                bottom: 1.3rem;
+                                > .con-wrap {
+                                    .num-wrap {
+                                        ul {
+                                            li {
+                                                &:first-child {
+                                                    > span {
+                                                        &::before {
+                                                            background: #FF9559;
+                                                        }
+                                                    }
+                                                }
+                                                &:last-child {
+                                                    > span {
+                                                        &::before {
+                                                            background: #FFD56A;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            &.type02 {
+                                left: 4.5rem;
+                                bottom: 6.5rem;
+                                > .con-wrap {
+                                    .num-wrap {
+                                        ul {
+                                            li {
+                                                &:first-child {
+                                                    > span {
+                                                        &::before {
+                                                            background: #775FFC;
+                                                        }
+                                                    }
+                                                }
+                                                &:last-child {
+                                                    > span {
+                                                        &::before {
+                                                            background: #6AD2FF;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .total {
+                            position: absolute;
+                            right: -6rem;
+                            top: 11.7rem;
+                            width: 30rem;
+                            height: 17.7rem;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            padding: 1.8rem 3rem 2rem 2.8rem;
+                            background: $white;
+                            border-radius: .8rem;
+                            box-shadow: 40px 31px 38px 0px rgba(0, 0, 0, 0.15);
+                            .tit {
+                                font-size: 2.2rem;
+                                font-weight: 700;
+                                letter-spacing: -0.132px;
+                                @include flexbox(row, flex-start, center);
+                                gap: 0.8rem;
+                                margin-bottom: 4.1rem;
+                                &::before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 2rem;
+                                    height: 2rem;
+                                    background: url(/assets/images/icon/ic_checkbox.png) no-repeat center/contain;
+                                }
+                            }
+                            .count {
+                                text-align: right;
+                                strong {
+                                    font-size: 4rem;
+                                    font-weight: 500;
+                                    span {
+                                        font-size: 6rem;
+                                        font-weight: 800;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     .apply {
@@ -94,12 +782,80 @@
     }
 }
 
+footer {
+    background: #343435;
+    .inner {
+        padding: 4rem 10rem;
+        @include flexbox(row, space-between, center);
+        .left {
+            @include flexbox(row, flex-start, center);
+            gap: 4.3rem;
+            .info-wrap {
+                ul {
+                    @include flexbox(row, flex-start, center);
+                    gap: 21px;
+                    margin-bottom: .8rem;
+                    li {
+                        position: relative;
+                        color: $white;
+                        font-weight: 700;
+                        font-size: 1.6rem;
+                        letter-spacing: -0.16px;
+                        &:first-child {
+                            &::after {
+                                content: '';
+                                display: inline-block;
+                                width: 1px;
+                                height: 14px;
+                                background: #9B9C9D;
+                                margin-left: 20px;
+                            }
+                        }
+                    }
+                }
+                p {
+                    color: $white;
+                    font-size: 1.6rem;
+                    letter-spacing: -0.16px;
+                }
+            }
+        }
+        .right {
+            .contact {
+                padding: 1.2rem 2rem;
+                border-radius: 1.2rem;
+                background: rgba(255, 255, 255, 0.10);
+                span {
+                    color: $white;
+                    font-size: 1.6rem;
+                    letter-spacing: -0.16px;
+                    opacity: 0.6;
+                }
+                p {
+                    margin-top: .6rem;
+                    color: $white;
+                    font-size: 1.6rem;
+                    a {
+                        color: $white;
+                        font-size: 2rem;
+                        font-weight: 700;
+                        letter-spacing: -0.2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .menu-list {
-    // position: absolute;
-    // top: calc(100vh - 11.8rem);
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100rem;
     height: 11.8rem;
     margin: 0 auto;
+    z-index: 10;
     ul {
         width: 100%;
         height: 100%;
@@ -131,358 +887,6 @@
                         background: rgba(255, 255, 255, 0.30);
                     }
                 }
-            }
-        }
-    }
-}
-
-section {
-    &.intro {
-        padding-top: 2.9rem;
-        background: palegoldenrod;
-        .login-wrap {
-            width: calc(100% - 2rem);
-            max-width: 1720px;
-            margin: 0 auto;
-            padding: 1.6rem 4rem;
-            border-radius: 2rem;
-            background: $white;
-            box-shadow: 0px 31px 38px 0px rgba(0, 0, 0, 0.07);
-            @include flexbox(row, space-between, center);
-            .user-area {
-                @include flexbox(row, center, center);
-                gap: .8rem;
-                .btn-wrap {
-                    @include flexbox(row, center, center);
-                    gap: .8rem;
-                    button {
-                        font-family: $pretendard;
-                        width: 12rem;
-                        height: 4.8rem;
-                        font-size: 2rem;
-                        border-radius: .8rem;
-                        transition: background .25s;
-                        &.login-btn {
-                            font-weight: 800;
-                            color: $purple;
-                            border: 1px solid $purple;
-                            background: $white;
-                            &:hover {
-                                color: #8450E0;
-                                border-color: #8450E0;
-                            }
-                            &:active {
-                                color: #3D1682;
-                                border-color: #3D1682;
-                            }
-                        }
-                        &.inquiry-btn {
-                            font-weight: 700;
-                            color: $white;
-                            background: $purple;
-                            letter-spacing: -0.12px;
-                            &:hover {
-                                background: #8450E0;
-                            }
-                            &:active {
-                                background: #3D1682;
-                            }
-                        }
-                    }
-                }
-                .select-box {
-                    position: relative;
-                    width: 10rem;
-                    height: 4.8rem;
-                    z-index: 10;
-                    cursor: pointer;
-                    .select-item {
-                        width: 100%;
-                        height: 100%;
-                        padding: 0;
-                        font-family: $pretendard;
-                        color: $gray06;
-                        font-weight: 700;
-                        font-size: 2rem;
-                        border: none;
-                        border-radius: .8rem;
-                        background: $white;
-                        @include flexbox(row, center, center);
-                        gap: .3rem;
-                        transition: background .25s;
-                        &::after {
-                            content: '';
-                            display: inline-block;
-                            width: 2.4rem;
-                            height: 2.4rem;
-                            background: url(/assets/images/icon/ic_arrow.png) no-repeat center/contain;
-                            transition: all .25s;
-                        }
-                        &.on{
-                            &::after{
-                                transform: rotate(180deg);
-                            }
-                        }
-                        &:hover {
-                            background: #F6F6F6;
-                        }
-                        &:active {
-                            background: #E6E6E6;
-                        }
-                    }
-                    .option-list {
-                        position: absolute;
-                        top: 5.2rem;
-                        width: 100%;
-                        border-radius: 0.8rem;
-                        box-shadow: 0px 31px 38px 0px rgba(0, 0, 0, 0.07);
-                        background: $white;
-                        display: none;
-                        li {
-                            width: 100%;
-                            height: 4.8rem;
-                            a {
-                                width: 100%;
-                                height: 100%;
-                                font-size: 2rem;
-                                font-weight: 500;
-                                color: $gray06;
-                                @include flexbox(row, center, center);
-                                transition: all .25s;
-                            }
-                            &:hover {
-                                a {
-                                    background: #F6F6F6;
-                                }
-                            }
-                            &:active {
-                                a {
-                                    background: #E6E6E6;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .con-wrap {
-            width: 100%;
-            @include flexbox(column, center, center);
-            h2 {
-                font-family: $LGEIHeadline;
-                font-weight: 800;
-                font-size: 15rem;
-                letter-spacing: -1.5px;
-            }
-            p {
-                font-size: 2rem;
-                text-align: center;
-                line-height: 1.4;
-            }
-            .bg-txt {
-                font-family: $LGEIHeadline;
-                font-size: 40rem;
-                font-weight: 700;
-                opacity: .6;
-                background: linear-gradient(#fff 20%, transparent 80%);
-                color: transparent;
-                background-clip: text;
-            }
-        }
-    }
-    &.ai-quick-tools {
-        background: url(/assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
-        .inner {
-            @include flexbox(row, center, center);
-            gap: 7.9rem;
-            .info-wrap {
-                text-align: left;
-            }
-            .con-wrap {
-                position: relative;
-                height: 60.7rem;
-                @include flexbox(row, center, center);
-                gap: 1.2rem;
-                .left {
-                    position: relative;
-                    width: 32.6rem;
-                    height: 100%;
-                    border-radius: 1.2rem;
-                    .item {
-                        width: 100%;
-                        height: 100%;
-                        background: url(/assets/images/common/ai_quick_tools_left.png) no-repeat center/cover;
-                    }
-                }
-                .right {
-                    height: 100%;
-                    @include flexbox(column, flex-start, flex-start);
-                    gap: 1.2rem;
-                    .right-top {
-                        width: 74.7rem;
-                        height: 50%;
-                        .item {
-                            width: 100%;
-                            height: 100%;
-                            background: url(/assets/images/common/ai_quick_tools_top.png) no-repeat center/cover;
-                        }
-                    }
-                    .right-bottom {
-                        width: 74.7rem;
-                        height: 50%;
-                        .item {
-                            width: 100%;
-                            height: 100%;
-                            background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat center/cover;
-                        }
-                    }
-                }
-                .carrier {
-                    position: absolute;
-                    bottom: 4.7rem;
-                    left: 15.6rem;
-                }
-            }
-        }
-    }
-    // &.digital-content-creator {
-
-    // }
-    &.ads-creator {
-        background: #F2F2F2;
-        .inner {
-            @include flexbox(column, flex-end, center);
-            gap: 4.2rem;
-            padding-bottom: 2rem;
-            .info-wrap {
-                text-align: center;
-            }
-            .flow-banner {
-                position: relative;
-                width: 100%;
-                height: auto;
-                // padding: 3rem 0;
-                overflow: hidden;
-                display: flex;
-                align-items: flex-end;
-                background: transparent;
-                .list {
-                    height: 100%;
-                    @include flexbox(row, center, flex-end);
-                    li {
-                        white-space: nowrap;
-                        width: 100%;
-                        height: 100%;
-                        padding: 0;
-                        margin: 0 0.7rem;
-                        @include flexbox(row, flex-end, flex-end);
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                        }
-                        &.flow-item01 {
-                            width: 33.2rem;
-                            height: 50.6rem;
-                        }
-                        &.flow-item02 {
-                            width: 50.8rem;
-                            height: 26.5rem;
-                        }
-                        &.flow-item03 {
-                            width: 33.9rem;
-                            height: 41.3rem;
-                        }
-                        &.flow-item04 {
-                            width: 30.7rem;
-                            height: 20.8rem;
-                        }
-                        &.flow-item05 {
-                            width: 28.9rem;
-                            height: 50.8rem;
-                        }
-                        &.flow-item06 {
-                            width: 50.8rem;
-                            height: 26.5rem;
-                        }
-                        &.flow-item07 {
-                            width: 28.9rem;
-                            height: 50.8rem;
-                        }
-                        &.flow-item08 {
-                            width: 30.7rem;
-                            height: 20.8rem;
-                        }
-                        &.flow-item09 {
-                            width: 33.9rem;
-                            height: 41.3rem;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    &.re-generator {
-        background: $black;
-        .inner {
-            width: calc(100% - 2rem);
-            margin: 0 auto;
-            @include flexbox(row, center, center);
-            .con-wrap {
-                position: relative;
-                width: 100%;
-                max-width: 1521px;
-                height: 100%;
-                max-height: 723px;
-                @include flexbox(row, center, center);
-                gap: 0;
-                border-radius: 2rem;
-                overflow: hidden;
-                .left {
-                    width: 50%;
-                    height: 100%;
-                    background: url(/assets/images/common/generator_left_bg.png) no-repeat right;
-                    .seed-image {
-                        width: 18rem;
-                        height: 6rem;
-                        margin: 2.4rem;
-                        border-radius: 1.4rem;
-                        @include flexbox(row, center, center);
-                        border: 2px solid rgba(191, 191, 191, 0.94);
-                        background: rgba(255, 255, 255, 0.30);
-                        backdrop-filter: blur(6px);
-                    }
-                }
-                .right {
-                    position: relative;
-                    width: 50%;
-                    height: 100%;
-                    background: url(/assets/images/common/generator_bg01.png) no-repeat left;
-                    .generator {
-                        position: absolute;
-                        top: -100%;
-                        left: 0;
-                        transform: translateY(-50%);
-                    }
-                }
-                .info-wrap {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-            }
-        }
-    }
-    &.campaign-optimizer {
-        .inner {
-            .con-wrap {
-                position: absolute;
-                bottom: 0;
-                right: 12.2rem;
-                width: 108.8rem;
-                height: 58.7rem;
-                background: url(/assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
             }
         }
     }
