@@ -20,8 +20,7 @@ body {
   overflow: hidden;
   position: absolute;
   clip: rect(0, 0, 0, 0);
-  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
-          clip-path: polygon(0 0, 0 0, 0 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -49,6 +48,25 @@ body {
   100% {
     width: 12rem;
     height: 12rem;
+    opacity: 1;
+  }
+}
+@keyframes cursorTyping {
+  0% {
+    border-right: 1px solid transparent;
+  }
+  50% {
+    border-right: 1px solid #000;
+  }
+  100% {
+    border-right: 1px solid transparent;
+  }
+}
+@keyframes blink {
+  40% {
+    opacity: 0.5;
+  }
+  80% {
     opacity: 1;
   }
 }
@@ -306,8 +324,7 @@ body {
   font-weight: 700;
   background: linear-gradient(#fff 20%, transparent 80%);
   color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
 }
 .wrapper main section.ai-quick-tools {
   background: url(/assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
@@ -399,6 +416,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  opacity: 0;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top .drag-wrap img {
   display: none;
@@ -422,8 +440,7 @@ body {
   border: 2px solid #fff;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   opacity: 0;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top .typing-wrap.on {
@@ -445,7 +462,10 @@ body {
   height: 6rem;
   border-radius: 50%;
   border: none;
-  background: url(/assets/images/cns/top_arrow.png) no-repeat center/contain #6624D9;
+  background: url(/assets/images/icon/ic_arrow_up.png) no-repeat center/contain #6624D9;
+}
+.wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top .typing-wrap button.blink {
+  animation: blink 1s infinite;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top #realDragArea {
   position: absolute;
@@ -510,6 +530,95 @@ body {
   bottom: 4.7rem;
   left: 15.6rem;
 }
+.wrapper main section.digital-content-creator .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.wrapper main section.digital-content-creator .inner .info-wrap {
+  text-align: center;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2.1rem;
+  padding: 8rem;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .empty {
+  position: relative;
+  width: 40rem;
+  height: 34.9rem;
+  font-family: "LGEIHeadline";
+  font-size: 8rem;
+  font-weight: 700;
+  color: #9B9C9D;
+  border-radius: 0.8rem;
+  border: 6px dashed #9B9C9D;
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .empty .empty-car {
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  width: 40rem;
+  height: 34.9rem;
+  border-radius: 1.4rem;
+  background: #FF9559;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .empty .empty-car img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48.3rem;
+  height: 15rem;
+  padding: 3.3rem 3.6rem;
+  border-radius: 1.4rem;
+  border: 2px solid rgba(191, 191, 191, 0.94);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap.on {
+  opacity: 1;
+  z-index: 10;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing-txt {
+  font-family: "LGEIHeadline";
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.96px;
+  line-height: 1.3;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing {
+  display: inline-block;
+  animation: cursorTyping 0.7s infinite;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap button {
+  position: absolute;
+  top: 50%;
+  right: 2.4rem;
+  transform: translateY(-50%);
+  width: 9.5rem;
+  height: 9.5rem;
+  border-radius: 50%;
+  border: none;
+  background: url(/assets/images/icon/ic_arrow_diagonal.png) no-repeat center/contain #6624D9;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap button.blink {
+  animation: blink 1s infinite;
+}
 .wrapper main section.ads-creator {
   background: #F2F2F2;
 }
@@ -554,8 +663,7 @@ body {
 .wrapper main section.ads-creator .inner .flow-banner .list li img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .wrapper main section.ads-creator .inner .flow-banner .list li.flow-item01 {
   width: 33.2rem;
@@ -634,8 +742,7 @@ body {
   align-items: center;
   border: 2px solid rgba(191, 191, 191, 0.94);
   background: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 .wrapper main section.re-generator .inner .con-wrap .right {
   position: relative;
@@ -921,12 +1028,16 @@ footer .inner .right .contact p a {
   margin: 0 auto;
   z-index: 10;
 }
+.menu-list.on {
+  position: absolute;
+  top: 135px;
+  bottom: auto;
+}
 .menu-list ul {
   width: 100%;
   height: 100%;
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   background: rgba(5, 6, 9, 0.7);
   display: flex;
   flex-direction: row;
