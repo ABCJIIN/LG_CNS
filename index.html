@@ -135,6 +135,7 @@
                         <button class="use-btn" type="button">사용해보기</button>
                     </div>
                     <div class="con-wrap">
+                        <div class="animate-cursor"></div>
                         <div class="empty">
                             <span>+</span>
                             <div class="empty-car">
@@ -142,9 +143,23 @@
                             </div>
                         </div>
                         <div class="typing-wrap">
-                            <p class="typing-txt">꽃을 가득 실은<br>자동차</p>
-                            <p class="typing"></p>
+                            <p class="typing-txt">꽃을 가득 실은</p>
+                            <p class="typing-txt02">자동차</p>
+                            <p class="typing"></p><br>
+                            <p class="typing02"></p>
                             <button type="button"></button>
+                        </div>
+                        <div class="flower-car">
+                            <div class="drag-wrap"></div>
+                            <img class="flower-img" src="/assets/images/common/flower_car.png" alt="꽃이 들어있는 자동차">
+                            <img class="bag-img" src="/assets/images/common/bag_car.png" alt="여행가방이 들어있는 자동차">
+                        </div>
+                        <div class="bag-typing-wrap">
+                            <p class="typing-txt">쌓여있는 여행가방들</p>
+                            <div class="txt-box">
+                                <p class="typing"></p>
+                            </div>
+                            <button type="button">입력</button>
                         </div>
                     </div>
                 </div>
@@ -351,6 +366,7 @@
         </footer>
         </main>
     <script>
+        // 페이지 로드 section별 이동
         window.onload = function(){
 
             window.scrollTo(0, 0);
@@ -359,59 +375,53 @@
             const elmCount = elm.length;
 
             elm.forEach(function(item, index){
-            item.addEventListener('mousewheel', function(event){
-            event.preventDefault();
-            let delta = 0;
+                item.addEventListener('mousewheel', function(event){
+                    event.preventDefault();
+                    let delta = 0;
 
-            if (!event) event = window.event;
-            if (event.wheelDelta) {
-                delta = event.wheelDelta / 120;
-                if (window.opera) delta = -delta;
-            } 
-            else if (event.detail)
-                delta = -event.detail / 3;
+                    if (!event) event = window.event;
+                    if (event.wheelDelta) {
+                        delta = event.wheelDelta / 120;
+                        if (window.opera) delta = -delta;
+                    } 
+                    else if (event.detail)
+                        delta = -event.detail / 3;
 
-            let moveTop = window.scrollY;
-            let elmSelector = elm[index];
+                    let moveTop = window.scrollY;
+                    let elmSelector = elm[index];
 
-          // wheel down : move to next section
-            if (delta < 0){
-                if (elmSelector !== elmCount-1){
-                    try{
-                        moveTop = window.pageYOffset + elmSelector.nextElementSibling.getBoundingClientRect().top;
-                    }catch(e){}
-                }
-            }
-          // wheel up : move to previous section
-            else{
-                if (elmSelector !== 0){
-                    try{
-                        moveTop = window.pageYOffset + elmSelector.previousElementSibling.getBoundingClientRect().top;
-                }catch(e){}
-            }
-        }
-                const body = document.querySelector('html');
-                window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
+                    // wheel down: move to next section
+                    if (delta < 0){
+                        if (elmSelector !== elmCount-1){
+                            try{
+                                moveTop = window.pageYOffset + elmSelector.nextElementSibling.getBoundingClientRect().top;
+                            }catch(e){}
+                        }
+                    }
+                    // wheel up: move to previous section
+                    else if (delta > 0){
+                        if (elmSelector !== 0 && (index > 0 || window.scrollY !== 0)){
+                            try{
+                                moveTop = window.pageYOffset + elmSelector.previousElementSibling.getBoundingClientRect().top;
+                            }catch(e){}
+                        } 
+                    }
+                    const body = document.querySelector('html');
+                    window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
+                });
             });
-        });
 
-        // $(window).scroll(function(){
-        //     var scrollPosition = $(this).scrollTop();
-        //     if($(this).scrollTop() >= 840 && $(this).scrollTop() <= 4599) {
-        //         $("main > .menu-list").css('display', 'block');
-        //         $("main > .menu-list").css('bottom', '0');
-        //         $("main > .menu-list").css('top', scrollPosition);
-        //     } else if($(this).scrollTop() >= 4616) {
-        //         $("main > .menu-list").css('display', 'none');
-        //     } else {
-        //         // $("main > .menu-list").css('display', 'block');
-        //         $("main > .menu-list").css('bottom', '4rem');
-        //         $("main > .menu-list").css('top', 'auto');
-        //     }
-        // })
-        
+        //스크롤시 top 버튼과 메뉴 위치
         $(window).scroll(function(){
+            
+            if ($(this).scrollTop() > 250) {
+            $('.top-btn').fadeIn();
+            } else {
+            $('.top-btn').fadeOut();
+            }
+
             var scrollPosition = $(this).scrollTop();
+
             if($(this).scrollTop() >= 840) {
                 $("main > .menu-list").css('bottom', '0');
                 $("main > .menu-list").css('top', scrollPosition);
@@ -419,7 +429,13 @@
                 $("main > .menu-list").css('bottom', '4rem');
                 $("main > .menu-list").css('top', 'auto');
             }
-        })
+        });
+
+        $(".top-btn").click(function() { 
+            $('html, body').animate({ scrollTop : 0
+            }, 400);
+            return false; 
+        }); 
 
         //커스텀 셀렉트
         function selectCustom(){
@@ -480,45 +496,11 @@
             }
         }setFlowBanner();
 
-        //AI Quick Tools
-        // $(window).scroll(function(){
-        //     if($(this).scrollTop() >= 320 && $(this).scrollTop() <= 957 ) {
-        //         $('.ai-quick-tools .animate-cursor').animate({
-        //             top: '10rem',
-        //         },1000, function(){
-        //             $('.ai-quick-tools .animate-cursor').addClass("click-motion");
-        //             $('.ai-quick-tools .left').delay(500).addClass("motion");
-        //         });
-        //         $('.ai-quick-tools .animate-cursor').animate({
-        //                 top: '92%',
-        //                 left: '68%',
-        //         },2000, function(){
-        //             $('.ai-quick-tools .show-bg').addClass('on');
-        //             $('.ai-quick-tools .show-bg').animate({
-        //                 width: '100%',
-        //                 height: '100%',
-        //             },1100)
-        //         });
-        //         $('.ai-quick-tools .animate-cursor').animate({
-        //             top: '97%',
-        //             left: '98%',
-        //         },1100);
-        //         $('.ai-quick-tools .animate-cursor').animate({
-        //             top: '2%',
-        //             left: '60%',
-        //         },1000);
-        //         $('.ai-quick-tools .animate-cursor').animate({
-        //             top: '24%',
-        //             left: '97%',
-        //         },1000, function(){
-        //             // $('.ai-quick-tools .drag-wrap').addClass('on');
-        //             $('.ai-quick-tools .drag-wrap').animate({
-        //                 width: '40.2rem',
-        //                 height: '13.6rem',
-        //             },1000)
-        //         })
-        //     };
-        // });
+
+        const interval = setInterval(aiQuickTools, 3000);
+        //AI Quick Tools 모션
+        function aiQuickTools() {
+                    
         var hideBgWidth = $('.ai-quick-tools .hide-bg').innerWidth();
         var finalWidth = hideBgWidth + 4 * parseFloat($('body').css('font-size')) + 'px';
 
@@ -626,7 +608,151 @@
                 $('.ai-quick-tools .animate-cursor').addClass("click-motion");
                 $('.ai-quick-tools .drag-wrap > img').addClass("on");
             });
-        };
+        }
+    };
+
+        //Digital Content Creator 모션
+        $('.digital-content-creator .animate-cursor').animate({
+            bottom: '12%',
+            left: '58%',
+        }, {
+            duration: 2000,
+                start : function() {
+                    $('.digital-content-creator .empty-car').animate({
+                    bottom: '-6px',
+                    left: '-6px',
+                }, 2000, function(){
+                    $('.digital-content-creator .typing-wrap').addClass("on");
+                    
+                    var typingBool = false; 
+                    var typingIdx=0; 
+
+                    // 타이핑될 텍스트를 가져온다 
+                    var typingTxt = $(".digital-content-creator .typing-wrap .typing-txt").text();
+
+                    typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
+                    
+                    if(typingBool == false){ 
+                            // 타이핑이 진행되지 않았다면 
+                            typingBool = true;     
+                            var tyInt = setInterval(typing,100); // 반복동작 
+                        } 
+
+                    function typing() {
+                        if(typingIdx<typingTxt.length){
+                            // 타이핑될 텍스트 길이만큼 반복 
+                            $(".digital-content-creator .typing-wrap .typing").addClass("on");
+                            $(".digital-content-creator .typing-wrap .typing").append(typingTxt[typingIdx]);
+                            // 한글자씩 이어준다. 
+                            typingIdx++; 
+                        } else {
+                            //끝나면 반복종료 
+                            clearInterval(tyInt);
+
+                            $(".digital-content-creator .typing-wrap .typing").removeClass("on");
+                            $(".digital-content-creator .typing-wrap .typing02").addClass("on");
+                            $('.digital-content-creator .animate-cursor').removeClass("click-motion");
+                            // $('.digital-content-creator .typing-wrap button').addClass("blink");
+
+                            var typingTxt02 = $(".digital-content-creator .typing-wrap .typing-txt02").text();
+                                typingTxt02 = typingTxt02.split("");
+
+                                typingIdx = 0;
+                                typingBool = false;
+
+                                if (typingBool == false) {
+                                    typingBool = true;
+                                    tyInt = setInterval(typing02, 100);
+                                }
+
+                                function typing02() {
+                                    if (typingIdx < typingTxt02.length) {
+                                        $(".digital-content-creator .typing-wrap .typing02").append(typingTxt02[typingIdx]);
+                                        typingIdx++;
+                                    } else {
+                                        clearInterval(tyInt);
+                                    }
+                                }
+                        }
+                    }
+                });
+            }
+        });
+        $('.digital-content-creator .animate-cursor').delay(1500).animate({
+            bottom: '0',
+        }, function(){
+            $('.digital-content-creator .animate-cursor').addClass("click-motion");
+        });
+        $('.digital-content-creator .animate-cursor').animate({
+            bottom: '0',
+        }, function(){
+            $('.digital-content-creator .flower-car').addClass("on");
+            $('.digital-content-creator .animate-cursor').removeClass("click-motion");
+            $('.digital-content-creator .typing-wrap').animate({
+                left: '37%',
+            });
+        });
+        $('.digital-content-creator .animate-cursor').animate({
+            bottom: '22%',
+            left: '58.5%',
+        },1000);
+        $('.digital-content-creator .animate-cursor').animate({
+            bottom: '6%',
+            left: '69%',
+        },{
+            duration : 500,
+                start : function() {
+                    $('.digital-content-creator .drag-wrap').animate({
+                    width: '20.3rem',
+                    height: '15.1rem',
+                });
+            }
+        });
+        $('.digital-content-creator .animate-cursor').animate({
+            bottom: '-3%',
+            left: '72%'
+        },1000, function(){
+            $('.digital-content-creator .bag-typing-wrap').addClass("on");
+            // $('.digital-content-creator .bag-typing-wrap button').addClass("blink");
+
+            var typingBool = false; 
+            var typingIdx=0; 
+
+            // 타이핑될 텍스트를 가져온다 
+            var typingTxt = $(".digital-content-creator .bag-typing-wrap .typing-txt").text(); 
+
+            typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
+
+            if(typingBool == false){ 
+                // 타이핑이 진행되지 않았다면 
+                typingBool = true;     
+                var tyInt = setInterval(typing,100); // 반복동작 
+            } 
+
+            function typing() {
+                if(typingIdx<typingTxt.length){
+                    // 타이핑될 텍스트 길이만큼 반복 
+                    $(".digital-content-creator .bag-typing-wrap .typing").append(typingTxt[typingIdx]);
+                    // 한글자씩 이어준다. 
+                    typingIdx++; 
+                } else {
+                    //끝나면 반복종료 
+                    clearInterval(tyInt);
+                    $('.digital-content-creator .animate-cursor').addClass("click-motion");
+                }
+            }
+        });
+        $('.digital-content-creator .animate-cursor').animate({
+            bottom: '-3%',
+            left: '72%',
+        }, 1500, function(){
+            $('.digital-content-creator .flower-car .flower-img').animate({
+                opacity: '0',
+            });
+            $('.digital-content-creator .flower-car .bag-img').animate({
+                opacity: '1',
+            });
+        })
     </script>
 </body>
 </html>
