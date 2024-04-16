@@ -26,6 +26,116 @@ body {
   margin: -1px;
 }
 
+@keyframes introCircleGreen {
+  0% {
+    left: 0;
+    bottom: -10rem;
+    width: 54.9rem;
+    height: 78.7rem;
+  }
+  20% {
+    left: 10rem;
+    bottom: -30rem;
+    width: 60rem;
+    height: 80rem;
+  }
+  40% {
+    left: -10rem;
+    bottom: 0;
+    width: 90rem;
+    height: 100rem;
+  }
+  60% {
+    left: 15rem;
+    bottom: -20rem;
+    width: 60rem;
+    height: 70rem;
+  }
+  80% {
+    left: -20rem;
+    bottom: -30rem;
+    width: 80rem;
+    height: 90rem;
+  }
+  100% {
+    left: 0;
+    bottom: -10rem;
+    width: 54.9rem;
+    height: 78.7rem;
+  }
+}
+@keyframes introCirclePink {
+  0% {
+    bottom: 15rem;
+    width: 79.1rem;
+    height: 77.7rem;
+  }
+  20% {
+    bottom: 20rem;
+    width: 60rem;
+    height: 100rem;
+  }
+  40% {
+    left: 30%;
+    bottom: 15rem;
+    width: 65rem;
+    height: 80rem;
+  }
+  60% {
+    bottom: 10rem;
+    width: 75rem;
+    height: 100rem;
+  }
+  80% {
+    left: 40%;
+    bottom: 5rem;
+    width: 85rem;
+    height: 90rem;
+  }
+  100% {
+    bottom: 15rem;
+    width: 79.1rem;
+    height: 77.7rem;
+  }
+}
+@keyframes introCirclePurple {
+  0% {
+    right: -30rem;
+    bottom: -10rem;
+    width: 66.8rem;
+    height: 66.8rem;
+  }
+  20% {
+    right: -10rem;
+    bottom: -50rem;
+    width: 60rem;
+    height: 50rem;
+  }
+  40% {
+    right: 0rem;
+    bottom: 10rem;
+    width: 50rem;
+    height: 45rem;
+  }
+  60% {
+    right: 5rem;
+    bottom: 10rem;
+    width: 65rem;
+    height: 60rem;
+  }
+  80% {
+    right: -10rem;
+    bottom: 5rem;
+    width: 75rem;
+    height: 80rem;
+  }
+  100% {
+    right: -30rem;
+    bottom: -10rem;
+    width: 66.8rem;
+    height: 66.8rem;
+  }
+}
 @keyframes flowRolling {
   0% {
     transform: translateX(0);
@@ -69,6 +179,22 @@ body {
   80% {
     opacity: 1;
   }
+}
+.wrapper {
+  overflow: hidden;
+}
+.wrapper .top-btn {
+  position: fixed;
+  bottom: 7rem;
+  right: 10rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: url(/assets/images/icon/ic_arrow_top.png) no-repeat center #ffffff;
+  filter: drop-shadow(0px 7px 16px rgba(0, 0, 0, 0.18));
+  cursor: pointer;
+  z-index: 999;
+  display: none;
 }
 .wrapper main {
   width: 100%;
@@ -146,6 +272,7 @@ body {
   background: rgba(38, 172, 158, 0.7);
   filter: blur(200px);
   z-index: -2;
+  animation: introCircleGreen 16s infinite;
 }
 .wrapper main section.intro .circle-bg.pink {
   left: 40%;
@@ -155,6 +282,7 @@ body {
   background: linear-gradient(180deg, #FFD8FC 0%, #FF9559 100%);
   filter: blur(200px);
   z-index: -1;
+  animation: introCirclePink 8s infinite;
 }
 .wrapper main section.intro .circle-bg.purple {
   right: -30rem;
@@ -164,6 +292,7 @@ body {
   background: rgba(102, 36, 217, 0.7);
   filter: blur(200px);
   z-index: -2;
+  animation: introCirclePurple 16s infinite;
 }
 .wrapper main section.intro .login-wrap {
   width: calc(100% - 2rem);
@@ -451,6 +580,10 @@ body {
   display: none;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top .typing-wrap .typing {
+  font-family: "LGEIHeadline";
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.96px;
   display: inline-block;
   animation: cursorTyping 0.7s infinite;
 }
@@ -547,6 +680,18 @@ body {
   gap: 2.1rem;
   padding: 8rem;
 }
+.wrapper main section.digital-content-creator .inner .con-wrap .animate-cursor {
+  position: absolute;
+  bottom: 0;
+  left: 38%;
+  width: 12rem;
+  height: 12rem;
+  background: url(/assets/images/icon/ic-cursors.png) no-repeat center/contain;
+  z-index: 20;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .animate-cursor.click-motion {
+  animation: animateCursor 0.3s;
+}
 .wrapper main section.digital-content-creator .inner .con-wrap .empty {
   position: relative;
   width: 40rem;
@@ -555,7 +700,7 @@ body {
   font-size: 8rem;
   font-weight: 700;
   color: #9B9C9D;
-  border-radius: 0.8rem;
+  border-radius: 1.4rem;
   border: 6px dashed #9B9C9D;
   background: #F6F6F6;
   display: flex;
@@ -565,8 +710,8 @@ body {
 }
 .wrapper main section.digital-content-creator .inner .con-wrap .empty .empty-car {
   position: absolute;
-  left: -6px;
-  top: -6px;
+  bottom: -40%;
+  left: -100%;
   width: 40rem;
   height: 34.9rem;
   border-radius: 1.4rem;
@@ -589,20 +734,24 @@ body {
   border: 2px solid rgba(191, 191, 191, 0.94);
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(6px);
+  opacity: 0;
 }
 .wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap.on {
   opacity: 1;
   z-index: 10;
 }
-.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing-txt {
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing-txt, .wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing-txt02 {
+  display: none;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing, .wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing02 {
   font-family: "LGEIHeadline";
   font-size: 3.2rem;
   font-weight: 700;
   letter-spacing: -0.96px;
   line-height: 1.3;
-}
-.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing {
   display: inline-block;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing.on, .wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap .typing02.on {
   animation: cursorTyping 0.7s infinite;
 }
 .wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap button {
@@ -617,6 +766,85 @@ body {
   background: url(/assets/images/icon/ic_arrow_diagonal.png) no-repeat center/contain #6624D9;
 }
 .wrapper main section.digital-content-creator .inner .con-wrap .typing-wrap button.blink {
+  animation: blink 1s infinite;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .flower-car {
+  position: relative;
+  width: 63.2rem;
+  height: 34.9rem;
+  display: none;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .flower-car.on {
+  display: block;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .flower-car .drag-wrap {
+  position: absolute;
+  left: 44%;
+  top: 34%;
+  width: 0;
+  height: 0;
+  border: 8px dashed #6624D9;
+  z-index: 10;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .flower-car img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: all 1s;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .flower-car img.flower-img {
+  opacity: 1;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .flower-car img.bag-img {
+  opacity: 0;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .bag-typing-wrap {
+  position: absolute;
+  right: 25%;
+  bottom: 5%;
+  width: 39.9rem;
+  height: 7.9rem;
+  border-radius: 1.4rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0px 2px 6px 0px rgba(184, 191, 206, 0.4);
+  opacity: 0;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .bag-typing-wrap.on {
+  opacity: 1;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .bag-typing-wrap .typing-txt {
+  display: none;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .bag-typing-wrap .txt-box {
+  width: 24.7rem;
+  height: 5.5rem;
+  border-radius: 8px;
+  border: 1px solid #E6E6E6;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .bag-typing-wrap .txt-box .typing {
+  margin: 1.6rem;
+  font-family: "LGEIHeadline";
+  font-size: 2rem;
+  font-weight: 700;
+  display: inline-block;
+  animation: cursorTyping 0.7s infinite;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .bag-typing-wrap button {
+  width: 12rem;
+  height: 5.5rem;
+  color: #ffffff;
+  font-size: 2rem;
+  letter-spacing: -0.12px;
+  border-radius: 8px;
+  border: none;
+  background: #3D1682;
+}
+.wrapper main section.digital-content-creator .inner .con-wrap .bag-typing-wrap button.blink {
   animation: blink 1s infinite;
 }
 .wrapper main section.ads-creator {
@@ -1026,7 +1254,7 @@ footer .inner .right .contact p a {
   width: 100rem;
   height: 11.8rem;
   margin: 0 auto;
-  z-index: 10;
+  z-index: 888;
 }
 .menu-list.on {
   position: absolute;
