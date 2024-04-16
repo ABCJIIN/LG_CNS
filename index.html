@@ -7,7 +7,7 @@
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <!-- chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
     <!-- 로컬소스 -->
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/font.css">
@@ -497,142 +497,210 @@
         }setFlowBanner();
 
 
-        const interval = setInterval(aiQuickTools, 3000);
+        
+            // 초기화 작업
+            function initializeAi() {
+                // 초기 작업 수행
+                $('.ai-quick-tools .left').removeClass("motion")
+                $('.ai-quick-tools .animate-cursor').css({ top: '0', left: '0' });
+                $('.ai-quick-tools .hide-bg').removeClass('on');
+                $('.ai-quick-tools .show-bg').css({width: '422px', height: '270px'});
+                $('.ai-quick-tools .show-bg-on').css({width: '462px', height: '310px'});
+                $('.ai-quick-tools .show-bg-on .circle.top').css({right: '8px', top:'4px'});
+                $('.ai-quick-tools .show-bg-on .circle.bottom-right').css({right: '8px', bottom:'12px'});
+                $('.ai-quick-tools .show-bg-on .circle.bottom-left').css({left: '6px', bottom:'12px'});
+                $('.ai-quick-tools .typing-wrap').removeClass('on');
+                $('.ai-quick-tools .typing').empty();
+                $('.ai-quick-tools .typing-wrap button').removeClass("blink");
+                $('.ai-quick-tools .drag-wrap').removeClass("on").css({ width: '0', height: '0' });
+                $('.ai-quick-tools .drag-wrap > img').removeClass("on");
+            }
+
         //AI Quick Tools 모션
         function aiQuickTools() {
-                    
-        var hideBgWidth = $('.ai-quick-tools .hide-bg').innerWidth();
-        var finalWidth = hideBgWidth + 4 * parseFloat($('body').css('font-size')) + 'px';
 
-        var hideBgHeight = $('.ai-quick-tools .hide-bg').innerHeight();
-        var finalHeight = hideBgHeight + 4 * parseFloat($('body').css('font-size')) + 'px';
+                initializeAi(); // 함수 호출 시 초기화
 
-        var typingBool = false; 
-        var typingIdx=0; 
+                // 작업 진행
+                var hideBgWidth = $('.ai-quick-tools .hide-bg').innerWidth();
+                var finalWidth = hideBgWidth + 4 * parseFloat($('body').css('font-size')) + 'px';
 
-        $('.ai-quick-tools .animate-cursor').animate({
-            top: '10rem',
-            },1000, function(){
-                $('.ai-quick-tools .animate-cursor').addClass("click-motion");
-                $('.ai-quick-tools .left').delay(500).addClass("motion");
-            });
-            $('.ai-quick-tools .animate-cursor').animate({
+                var hideBgHeight = $('.ai-quick-tools .hide-bg').innerHeight();
+                var finalHeight = hideBgHeight + 4 * parseFloat($('body').css('font-size')) + 'px';
+
+                var typingBool = false;
+                var typingIdx = 0;
+
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '10rem',
+                }, 1000, function () {
+                    $('.ai-quick-tools .animate-cursor').addClass("click-motion");
+                    $('.ai-quick-tools .left').delay(500).addClass("motion");
+                });
+
+                // 작업들을 순차적으로 계속 진행합니다.
+                $('.ai-quick-tools .animate-cursor').animate({
                     top: '92%',
                     left: '68%',
-            },2000, function(){
-                $('.ai-quick-tools .hide-bg').addClass('on');
-                $('.ai-quick-tools .animate-cursor').removeClass("click-motion");
-                $('.ai-quick-tools .show-bg').animate({
-                    width: '100%',
-                    height: '100%'
+                }, 2000, function () {
+                    $('.ai-quick-tools .hide-bg').addClass('on');
+                    $('.ai-quick-tools .animate-cursor').removeClass("click-motion");
+                    $('.ai-quick-tools .show-bg').animate({
+                        width: '100%',
+                        height: '100%'
+                    }, {
+                        duration: 1100,
+                        start: function () {
+                            $('.ai-quick-tools .show-bg-on').animate({
+                                width: finalWidth,
+                                height: finalHeight
+                            }, 1100);
+                            $('.ai-quick-tools .show-bg-on .circle.top').animate({
+                                top: '5px',
+                                right: '32px'
+                            }, 1100);
+                            $('.ai-quick-tools .show-bg-on .circle.bottom-right').animate({
+                                bottom: '32px',
+                                right: '32px'
+                            }, 1100);
+                            $('.ai-quick-tools .show-bg-on .circle.bottom-left').animate({
+                                bottom: '32px',
+                                left: '6px'
+                            }, 1100);
+                        }
+                    });
+                });
+
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '97%',
+                    left: '98%',
+                }, 1100);
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '2%',
+                    left: '60%',
+                });
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '23%',
+                    left: '94%',
                 }, {
-                    duration: 1100,
-                    start : function () {
-                        $('.ai-quick-tools .show-bg-on').animate({
-                            width: finalWidth,
-                            height: finalHeight
-                        },1100);
-                        $('.ai-quick-tools .show-bg-on .circle.top').animate({
-                            top: '5px',
-                            right: '32px'
-                        },1100);
-                        $('.ai-quick-tools .show-bg-on .circle.bottom-right').animate({
-                            bottom: '32px',
-                            right: '32px'
-                        },1100);
-                        $('.ai-quick-tools .show-bg-on .circle.bottom-left').animate({
-                            bottom: '32px',
-                            left: '6px'
-                        },1100);
+                    duration: 1000,
+                    start: function () {
+                        $('.ai-quick-tools .drag-wrap').addClass("on");
+                        $('.ai-quick-tools .drag-wrap').animate({
+                            width: '40.2rem',
+                            height: '13.6rem'
+                        }, 1000, function () {
+                            $('.ai-quick-tools .typing-wrap').addClass('on');
+                        });
                     }
                 });
-            });
-            $('.ai-quick-tools .animate-cursor').animate({
-                top: '97%',
-                left: '98%',
-            },1100);
-            $('.ai-quick-tools .animate-cursor').animate({
-                top: '2%',
-                left: '60%',
-            });
-            $('.ai-quick-tools .animate-cursor').animate({
-                top: '23%',
-                left: '94%',
-            }, {
-                duration: 1000,
-                start : function() {
-                    $('.ai-quick-tools .drag-wrap').addClass("on");
-                    $('.ai-quick-tools .drag-wrap').animate({
-                        width: '40.2rem',
-                        height: '13.6rem'
-                    }, 1000, function(){
-                        $('.ai-quick-tools .typing-wrap').addClass('on');
-                    });
-                }
-            });
-            $('.ai-quick-tools .animate-cursor').animate({
-                top: '35%',
-                left: '64%',
-            },1000, function(){
-                $('.ai-quick-tools .animate-cursor').addClass("click-motion");
 
-                // 타이핑될 텍스트를 가져온다 
-                var typingTxt = $(".ai-quick-tools .typing-txt").text(); 
+                $('.ai-quick-tools .animate-cursor').animate({
+                    top: '35%',
+                    left: '64%',
+                }, 1000, function () {
+                    $('.ai-quick-tools .animate-cursor').addClass("click-motion");
 
-                typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
+                    // 타이핑될 텍스트를 가져온다 
+                    var typingTxt = $(".ai-quick-tools .typing-txt").text();
 
-                if(typingBool == false){ 
-                    // 타이핑이 진행되지 않았다면 
-                    typingBool = true;     
-                    var tyInt = setInterval(typing,300); // 반복동작 
-                } 
+                    typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
 
-                function typing() {
-                    if(typingIdx<typingTxt.length){
-                        // 타이핑될 텍스트 길이만큼 반복 
-                        $(".ai-quick-tools .typing").append(typingTxt[typingIdx]);
-                        // 한글자씩 이어준다. 
-                        typingIdx++; 
-                    } else {
-                        //끝나면 반복종료 
-                        clearInterval(tyInt);
-                        $('.ai-quick-tools .animate-cursor').removeClass("click-motion");
-                        $('.ai-quick-tools .typing-wrap button').addClass("blink");
+                    if (typingBool == false) {
+                        // 타이핑이 진행되지 않았다면 
+                        typingBool = true;
+                        var tyInt = setInterval(typing, 300); // 반복동작 
                     }
-                }
-            });
-            $('.ai-quick-tools .animate-cursor').delay(1500).animate({
-                left: '91%',
-            },2000, function(){
-                $('.ai-quick-tools .typing-wrap button').removeClass("blink");
-                $('.ai-quick-tools .animate-cursor').addClass("click-motion");
-                $('.ai-quick-tools .drag-wrap > img').addClass("on");
-            });
-        }
-    };
+
+                    function typing() {
+                        if (typingIdx < typingTxt.length) {
+                            // 타이핑될 텍스트 길이만큼 반복 
+                            $(".ai-quick-tools .typing").append(typingTxt[typingIdx]);
+                            // 한글자씩 이어준다. 
+                            typingIdx++;
+                        } else {
+                            //끝나면 반복종료 
+                            clearInterval(tyInt);
+                            $('.ai-quick-tools .animate-cursor').removeClass("click-motion");
+                            $('.ai-quick-tools .typing-wrap button').addClass("blink");
+                        }
+                    }
+                });
+
+                $('.ai-quick-tools .animate-cursor').delay(1500).animate({
+                    left: '91%',
+                }, 2000, function () {
+                    $('.ai-quick-tools .typing-wrap button').removeClass("blink");
+                    $('.ai-quick-tools .animate-cursor').addClass("click-motion");
+                    $('.ai-quick-tools .drag-wrap > img').addClass("on");
+
+                    // 작업이 완료된 후 3초 후에 initialize 함수 호출하여 작업 재시작
+                    // setTimeout(function () {
+                        aiQuickTools();
+                    // }, 3000);
+                });
+            }
+
+            // $(document).ready(function(){
+            //     // 페이지 로딩 후 초기화 및 애니메이션 시작
+            //     aiQuickTools();
+            // });
+
+            $(window).scroll(function(){
+
+                var h = $(document).scrollTop();
+                
+                    if(h > 800 && h < 856) {
+                        aiQuickTools();
+                    } else {                        
+                        // return false;
+                    }
+
+                });
 
         //Digital Content Creator 모션
-        $('.digital-content-creator .animate-cursor').animate({
-            bottom: '12%',
-            left: '58%',
-        }, {
-            duration: 2000,
+        function digitalContentCreator() {
+
+            //초기화 작업
+            function initializeDigital() {
+                $('.digital-content-creator .animate-cursor').css({ bottom: '0', left: '38%' });
+                $('.digital-content-creator .empty-car').css({ bottom: '-40%', left: '-100%' });
+                $('.digital-content-creator .typing-wrap').removeClass('on');
+                $('.digital-content-creator .animate-cursor').removeClass("click-motion");
+                $('.digital-content-creator .flower-car').removeClass("on");
+                $('.digital-content-creator .bag-typing-wrap').removeClass("on");
+                $('.digital-content-creator .typing').empty();
+                $('.digital-content-creator .typing02').empty();
+                $('.digital-content-creator .typing-wrap').css({left: '50%'});
+                $('.digital-content-creator .drag-wrap').css({width: '0', height: '0'});
+                $('.digital-content-creator .flower-car .flower-img').css({opacity: '1'});
+                $('.digital-content-creator .flower-car .bag-img').css({opacity: '0'});
+            }
+
+            initializeDigital(); // 함수 호출 시 초기화
+
+            //작업 진행
+            $('.digital-content-creator .animate-cursor').animate({
+                bottom: '12%',
+                left: '58%',
+            }, {
+                duration: 2000,
                 start : function() {
                     $('.digital-content-creator .empty-car').animate({
                     bottom: '-6px',
                     left: '-6px',
-                }, 2000, function(){
-                    $('.digital-content-creator .typing-wrap').addClass("on");
+                    }, 2000, function(){
+                        $('.digital-content-creator .typing-wrap').addClass("on");
                     
-                    var typingBool = false; 
-                    var typingIdx=0; 
+                        var typingBool = false; 
+                        var typingIdx=0; 
 
-                    // 타이핑될 텍스트를 가져온다 
-                    var typingTxt = $(".digital-content-creator .typing-wrap .typing-txt").text();
+                        // 타이핑될 텍스트를 가져온다 
+                        var typingTxt = $(".digital-content-creator .typing-wrap .typing-txt").text();
 
-                    typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
+                        typingTxt = typingTxt.split(""); // 한글자씩 자른다. 
                     
-                    if(typingBool == false){ 
+                        if(typingBool == false){ 
                             // 타이핑이 진행되지 않았다면 
                             typingBool = true;     
                             var tyInt = setInterval(typing,100); // 반복동작 
@@ -645,16 +713,16 @@
                             $(".digital-content-creator .typing-wrap .typing").append(typingTxt[typingIdx]);
                             // 한글자씩 이어준다. 
                             typingIdx++; 
-                        } else {
-                            //끝나면 반복종료 
-                            clearInterval(tyInt);
+                            } else {
+                                //끝나면 반복종료 
+                                clearInterval(tyInt);
 
-                            $(".digital-content-creator .typing-wrap .typing").removeClass("on");
-                            $(".digital-content-creator .typing-wrap .typing02").addClass("on");
-                            $('.digital-content-creator .animate-cursor').removeClass("click-motion");
-                            // $('.digital-content-creator .typing-wrap button').addClass("blink");
+                                $(".digital-content-creator .typing-wrap .typing").removeClass("on");
+                                $(".digital-content-creator .typing-wrap .typing02").addClass("on");
+                                $('.digital-content-creator .animate-cursor').removeClass("click-motion");
+                                // $('.digital-content-creator .typing-wrap button').addClass("blink");
 
-                            var typingTxt02 = $(".digital-content-creator .typing-wrap .typing-txt02").text();
+                                var typingTxt02 = $(".digital-content-creator .typing-wrap .typing-txt02").text();
                                 typingTxt02 = typingTxt02.split("");
 
                                 typingIdx = 0;
@@ -673,47 +741,47 @@
                                         clearInterval(tyInt);
                                     }
                                 }
+                            }
                         }
-                    }
-                });
-            }
-        });
-        $('.digital-content-creator .animate-cursor').delay(1500).animate({
-            bottom: '0',
-        }, function(){
-            $('.digital-content-creator .animate-cursor').addClass("click-motion");
-        });
-        $('.digital-content-creator .animate-cursor').animate({
-            bottom: '0',
-        }, function(){
-            $('.digital-content-creator .flower-car').addClass("on");
-            $('.digital-content-creator .animate-cursor').removeClass("click-motion");
-            $('.digital-content-creator .typing-wrap').animate({
-                left: '37%',
+                    });
+                }
             });
-        });
-        $('.digital-content-creator .animate-cursor').animate({
-            bottom: '22%',
-            left: '58.5%',
-        },1000);
-        $('.digital-content-creator .animate-cursor').animate({
-            bottom: '6%',
-            left: '69%',
-        },{
-            duration : 500,
-                start : function() {
-                    $('.digital-content-creator .drag-wrap').animate({
-                    width: '20.3rem',
-                    height: '15.1rem',
+            $('.digital-content-creator .animate-cursor').delay(1500).animate({
+                bottom: '0',
+            }, function(){
+                $('.digital-content-creator .animate-cursor').addClass("click-motion");
+            });
+            $('.digital-content-creator .animate-cursor').animate({
+                bottom: '0',
+            }, function(){
+                $('.digital-content-creator .flower-car').addClass("on");
+                $('.digital-content-creator .animate-cursor').removeClass("click-motion");
+                $('.digital-content-creator .typing-wrap').animate({
+                    left: '37%',
                 });
-            }
-        });
-        $('.digital-content-creator .animate-cursor').animate({
-            bottom: '-3%',
-            left: '72%'
-        },1000, function(){
-            $('.digital-content-creator .bag-typing-wrap').addClass("on");
-            // $('.digital-content-creator .bag-typing-wrap button').addClass("blink");
+            });
+            $('.digital-content-creator .animate-cursor').animate({
+                bottom: '22%',
+                left: '58.5%',
+            },1000);
+            $('.digital-content-creator .animate-cursor').animate({
+                bottom: '6%',
+                left: '69%',
+            },{
+                duration : 500,
+                    start : function() {
+                        $('.digital-content-creator .drag-wrap').animate({
+                        width: '20.3rem',
+                        height: '15.1rem',
+                    });
+                }
+            });
+            $('.digital-content-creator .animate-cursor').animate({
+                bottom: '-3%',
+                left: '72%'
+            },1000, function(){
+                $('.digital-content-creator .bag-typing-wrap').addClass("on");
+                // $('.digital-content-creator .bag-typing-wrap button').addClass("blink");
 
             var typingBool = false; 
             var typingIdx=0; 
@@ -739,20 +807,32 @@
                     //끝나면 반복종료 
                     clearInterval(tyInt);
                     $('.digital-content-creator .animate-cursor').addClass("click-motion");
+                    }
                 }
-            }
+            });
+            $('.digital-content-creator .animate-cursor').animate({
+                bottom: '-3%',
+                left: '72%',
+            }, 1500, function(){
+                $('.digital-content-creator .flower-car .flower-img').animate({
+                    opacity: '0',
+                });
+                $('.digital-content-creator .flower-car .bag-img').animate({
+                    opacity: '1',
+                });
+
+                // 작업이 완료된 후 3초 후에 initialize 함수 호출하여 작업 재시작
+                setTimeout(function(){
+                    digitalContentCreator();
+                }, 3000);
+            });
+        };
+
+        // 페이지 로드 후 첫 작업 시작
+        $(document).ready(function () {
+            digitalContentCreator();
         });
-        $('.digital-content-creator .animate-cursor').animate({
-            bottom: '-3%',
-            left: '72%',
-        }, 1500, function(){
-            $('.digital-content-creator .flower-car .flower-img').animate({
-                opacity: '0',
-            });
-            $('.digital-content-creator .flower-car .bag-img').animate({
-                opacity: '1',
-            });
-        })
+    };
     </script>
 </body>
 </html>
