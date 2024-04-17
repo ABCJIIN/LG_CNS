@@ -1,3 +1,4 @@
+@import "responsive";
 $black : #050609;
 $white : #ffffff;
 $purple: #6624D9;
@@ -189,11 +190,11 @@ body{
     }
 }
 
-@keyframes blink {
-    40% {
-        opacity:.5;
-    }
-    80% {
-        opacity: 1;
-    }
-}
+// @keyframes blink {
+//     40% {
+//         opacity:.5;
+//     }
+//     80% {
+//         opacity: 1;
+//     }
+// }
