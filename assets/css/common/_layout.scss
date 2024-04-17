@@ -20,6 +20,9 @@
             position: relative;
             width: 100%;
             height: 100vh;
+            &:not(.intro) {
+                padding-top: 13.8rem;
+            }
             .inner {
                 width: 100%;
                 height: 100%;
@@ -30,22 +33,28 @@
                 .info-wrap {
                     strong {
                         font-family: $LGEIHeadline;
-                        font-size: 8rem;
+                        // font-size: 8rem;
+                        font-size: clamp(4rem, 4.2vw, 8rem);
                         font-weight: 800;
                         letter-spacing: -0.8px;
                     }
                     p {
                         margin: 1.2rem 0 4rem;
-                        font-size: 2rem;
+                        // font-size: 2rem;
+                        font-size: clamp(12px, 1.1vw, 2rem);
                         letter-spacing: -0.2px;
+                        white-space: nowrap;
                     }
                     .use-btn {
-                        width: 18rem;
-                        height: 6rem;
+                        // width: 18rem;
+                        width: clamp(13rem, 9.4vw, 18rem);
+                        // height: 6rem;
+                        height: clamp(4.5rem, 3.2vw, 6rem);
                         padding: 0;
                         border: none;
                         border-radius: .8rem;
-                        font-size: 2rem;
+                        // font-size: 2rem;
+                        font-size: clamp(14px, 1.1vw, 2rem);
                         font-weight: 700;
                         letter-spacing: -0.12px;
                         color: $white;
@@ -87,7 +96,7 @@
                         background: rgba(38, 172, 158, 0.70);
                         filter: blur(200px);
                         z-index: -2;
-                        animation: introCircleGreen 16s infinite;
+                        animation: introCircleGreen 10s infinite;
                     }
                     &.pink {
                         left: 40%;
@@ -97,7 +106,7 @@
                         background: linear-gradient(180deg, #FFD8FC 0%, #FF9559 100%);
                         filter: blur(200px);
                         z-index: -1;
-                        animation: introCirclePink 8s infinite;
+                        animation: introCirclePink 10s infinite;
                     }
                     &.purple {
                         right: -30rem;
@@ -107,11 +116,11 @@
                         background: rgba(102, 36, 217, 0.70);
                         filter: blur(200px);
                         z-index: -2;
-                        animation: introCirclePurple 16s infinite;
+                        animation: introCirclePurple 10s infinite;
                     }
                 }
                 .login-wrap {
-                    width: calc(100% - 2rem);
+                    width: calc(100% - 10rem);
                     max-width: 1720px;
                     margin: 0 auto;
                     padding: 1.6rem 4rem;
@@ -211,6 +220,7 @@
                                 li {
                                     width: 100%;
                                     height: 4.8rem;
+                                    border-radius: 0.8rem;
                                     a {
                                         width: 100%;
                                         height: 100%;
@@ -218,6 +228,7 @@
                                         font-weight: 500;
                                         color: $gray06;
                                         @include flexbox(row, center, center);
+                                        border-radius: 0.8rem;
                                         transition: all .25s;
                                     }
                                     &:hover {
@@ -237,24 +248,27 @@
                 }
                 .con-wrap {
                     width: 100%;
-                    margin-top: 10rem;
+                    // margin-top: 10rem;
+                    margin-top: clamp(5rem, 5.2vw, 10rem);
                     @include flexbox(column, center, center);
                     h2 {
                         font-family: $LGEIHeadline;
                         font-weight: 800;
-                        font-size: 15rem;
+                        // font-size: 15rem;
+                        font-size: clamp(12rem, 7.8vw, 15rem);
                         letter-spacing: -1.5px;
                     }
                     p {
-                        font-size: 2rem;
+                        // font-size: 2rem;
+                        font-size: clamp(1.4rem, 1.1vw, 2rem);
                         text-align: center;
                         line-height: 1.4;
                     }
                     .bg-txt {
                         font-family: $LGEIHeadline;
-                        font-size: 40rem;
+                        // font-size: 40rem;
+                        font-size: clamp(32rem, 21vw, 40rem);
                         font-weight: 700;
-                        // opacity: .6;
                         background: linear-gradient(#fff 20%, transparent 80%);
                         color: transparent;
                         background-clip: text;
@@ -265,13 +279,15 @@
                 background: url(/assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
                 .inner {
                     @include flexbox(row, center, center);
-                    gap: 7.9rem;
+                    // gap: 7.9rem;
+                    gap: clamp(4rem, 4.2vw, 7.9rem);
                     .info-wrap {
                         text-align: left;
                     }
                     .con-wrap {
                         position: relative;
-                        height: 60.7rem;
+                        // height: 60.7rem;
+                        height: clamp(50rem, 31.6vw, 60.7rem);
                         @include flexbox(row, center, center);
                         gap: 1.2rem;
                         .animate-cursor {
@@ -288,9 +304,11 @@
                         }
                         .left {
                             position: relative;
-                            width: 32.6rem;
+                            // width: 32.6rem;
+                            width: clamp(17rem, 17vw, 32.6rem);
                             height: 100%;
                             border-radius: 1.2rem;
+                            overflow: hidden;
                             .item {
                                 width: 100%;
                                 height: 100%;
@@ -308,31 +326,32 @@
                             gap: 1.2rem;
                             .right-top {
                                 position: relative;
-                                width: 74.7rem;
+                                // width: 74.7rem;
+                                width: clamp(39rem, 39vw, 74.7rem);
                                 height: 50%;
                                 background: url(/assets/images/common/ai_quick_tools_top.png) no-repeat center/cover;
-                                .drag-area {
-                                    position: absolute;
-                                    left: calc(100% - 42.3rem);
-                                    top: 21px;
-                                    width: 40.2rem;
-                                    height: 13.6rem;
-                                    border: 2px solid #6624D9;
-                                    background: rgba(255,255,255,0.3);
-                                    animation: dragE 3s ease infinite;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    display: none;
-                                    &.on {
-                                        display: block;
-                                    }
-                                }
+                                // .drag-area {
+                                //     position: absolute;
+                                //     left: calc(100% - 42.3rem);
+                                //     top: 21px;
+                                //     width: 40.2rem;
+                                //     height: 13.6rem;
+                                //     border: 2px solid #6624D9;
+                                //     background: rgba(255,255,255,0.3);
+                                //     animation: dragE 3s ease infinite;
+                                //     display: flex;
+                                //     align-items: center;
+                                //     justify-content: center;
+                                //     display: none;
+                                //     &.on {
+                                //         display: block;
+                                //     }
+                                // }
                                 .drag-wrap {
                                     position: absolute;
                                     top: 21px;
                                     // right: 21px;
-                                    left: 40%;
+                                    left: 43%;
                                     width: 0;
                                     height: 0;
                                     // width: 40.2rem;
@@ -341,6 +360,9 @@
                                     @include flexbox(row, center, center);
                                     opacity: 0;
                                     img {
+                                        // width: 39.9rem;
+                                        // height: 14.5rem;
+                                        width: clamp(20rem, 21vw, 39.9rem);
                                         display: none;
                                         &.on {
                                             display: block;
@@ -352,10 +374,13 @@
                                 }
                                 .typing-wrap {
                                     position: absolute;
-                                    right: 18px;
+                                    // right: 18px;
+                                    left: 43%;
                                     bottom: 18px;
-                                    width: 406px;
-                                    height: 105px;
+                                    // width: 406px;
+                                    width: clamp(20rem, 21.2vw, 40.6rem);
+                                    // height: 105px;
+                                    height: clamp(5rem, 5.5vw, 10.5rem);
                                     padding: 34px 36px;
                                     font-size: 3.2rem;
                                     font-weight: 700;
@@ -382,16 +407,20 @@
                                     }
                                     button {
                                         position: absolute;
-                                        bottom: 21px;
+                                        // bottom: 21px;
+                                        top: 50%;
+                                        transform: translateY(-50%);
                                         right: 36px;
-                                        width: 6rem;
-                                        height: 6rem;
+                                        // width: 6rem;
+                                        width: clamp(2rem, 5.9vw, 6rem);
+                                        // height: 6rem;
+                                        height: clamp(2rem, 5.9vw, 6rem);
                                         border-radius: 50%;
                                         border: none;
                                         background: url(/assets/images/icon/ic_arrow_up.png) no-repeat center/contain $purple;
-                                        &.blink {
-                                            animation: blink 1s infinite;
-                                        }
+                                        // &.blink {
+                                        //     animation: blink 1s infinite;
+                                        // }
                                     }
                                 }
                                 #realDragArea {
@@ -401,7 +430,8 @@
                                 }
                             }
                             .right-bottom {
-                                width: 74.7rem;
+                                // width: 74.7rem;
+                                width: clamp(39rem, 39vw, 74.7rem);
                                 height: 50%;
                                 .hide-bg {
                                     position: relative;
@@ -409,8 +439,10 @@
                                     height: 100%;
                                     .show-bg {
                                         position: relative;
-                                        width: 422px;
-                                        height: 270px;
+                                        // width: 422px;
+                                        // height: 270px;
+                                        width: 60%;
+                                        height: 90%;
                                         background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat top left;
                                         border-radius: 0 0 12px 0;
                                     }
@@ -418,8 +450,10 @@
                                         position: absolute;
                                         top: -20px;
                                         left: -20px;
-                                        width: 462px;
-                                        height: 310px;
+                                        // width: 462px;
+                                        // height: 310px;
+                                        width: calc(60% + 40px);
+                                        height: calc(60% + 40px);
                                         border-radius: 0 0 12px 0;
                                         opacity: 0;
                                         .circle {
@@ -465,6 +499,13 @@
                             position: absolute;
                             bottom: 4.7rem;
                             left: 15.6rem;
+                            // width: 45.4rem;
+                            width: clamp(30rem, 23.6vw, 45.4rem);
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
                         }
                     }
                 }
@@ -561,9 +602,9 @@
                                 border-radius: 50%;
                                 border: none;
                                 background: url(/assets/images/icon/ic_arrow_diagonal.png) no-repeat center/contain $purple;
-                                &.blink {
-                                    animation: blink 1s infinite;
-                                }
+                                // &.blink {
+                                //     animation: blink 1s infinite;
+                                // }
                             }
                         }
                         .flower-car {
@@ -584,6 +625,10 @@
                                 height: 0;
                                 border: 8px dashed $purple;
                                 z-index: 10;
+                                display: none;
+                                &.on {
+                                    display: block;
+                                }
                             }
                             img {
                                 position: absolute;
@@ -639,9 +684,9 @@
                                 border-radius: 8px;
                                 border: none;
                                 background: #3D1682;
-                                &.blink {
-                                    animation: blink 1s infinite;
-                                }
+                                // &.blink {
+                                //     animation: blink .25s infinite;
+                                // }
                             }
                         }
                     }
@@ -650,18 +695,20 @@
             &.ads-creator {
                 background: #F2F2F2;
                 .inner {
-                    @include flexbox(column, flex-end, center);
-                    gap: 4.2rem;
-                    padding-bottom: 2rem;
+                    @include flexbox(column, space-between, center);
+                    // gap: 4.2rem;
+                    // padding-bottom: 2rem;
+                    padding: 2rem 0;
                     .info-wrap {
                         text-align: center;
                     }
                     .flow-banner {
                         position: relative;
                         width: 100%;
-                        height: auto;
-                        // padding: 3rem 0;
-                        overflow: hidden;
+                        height: calc(100% - 23.2rem);
+                        // height: auto;
+                        // height: 45rem;
+                        // overflow: hidden;
                         display: flex;
                         align-items: flex-end;
                         background: transparent;
@@ -670,8 +717,9 @@
                             @include flexbox(row, center, flex-end);
                             li {
                                 white-space: nowrap;
-                                width: 100%;
-                                height: 100%;
+                                // width: 100%;
+                                // height: 100%;
+                                max-height: 100%;
                                 padding: 0;
                                 margin: 0 0.7rem;
                                 @include flexbox(row, flex-end, flex-end);
@@ -683,6 +731,7 @@
                                 &.flow-item01 {
                                     width: 33.2rem;
                                     height: 50.6rem;
+                                    // max-height: 100%;
                                 }
                                 &.flow-item02 {
                                     width: 50.8rem;
@@ -726,12 +775,12 @@
                 .inner {
                     width: calc(100% - 2rem);
                     margin: 0 auto;
-                    @include flexbox(row, center, center);
+                    @include flexbox(row, center, flex-start);
                     .con-wrap {
                         position: relative;
-                        width: 100%;
+                        width: calc(100% - 2rem);
                         max-width: 1521px;
-                        height: 100%;
+                        height: calc(100% - 2rem);
                         max-height: 723px;
                         @include flexbox(row, center, center);
                         gap: 0;
@@ -775,15 +824,18 @@
             }
             &.campaign-optimizer {
                 .inner {
+                    @include flexbox(row, space-between, flex-end);
+                    padding: 0 10rem;
                     .info-wrap {
+                        @include flexbox(column, flex-start, flex-start);
+                        height: 100%;
+                        padding-top: 9.6rem;
                         p {
                             margin: 2.4rem 0 4rem;
+                            line-height: 1.4;
                         }
                     }
                     > .con-wrap {
-                        position: absolute;
-                        bottom: 0;
-                        right: 12.2rem;
                         width: 108.8rem;
                         height: 58.7rem;
                         background: url(/assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
@@ -1065,15 +1117,11 @@ footer {
     bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 100rem;
+    width: calc(100% - 10rem);
+    max-width: 100rem;
     height: 11.8rem;
     margin: 0 auto;
     z-index: 888;
-    &.on {
-        position: absolute;
-        top: 135px;
-        bottom: auto;
-    }
     ul {
         width: 100%;
         height: 100%;

@@ -1,0 +1,13 @@
+/* 노트북 */
+@mixin notebook{
+    @media (max-width: 1300px){ 
+        @content;
+    }
+}
+
+/* 테블릿 */
+@mixin tablet{
+    @media (max-width: 768px){
+        @content;
+    }
+}
