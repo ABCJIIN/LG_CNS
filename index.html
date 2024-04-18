@@ -102,7 +102,6 @@
                         </div>
                         <div class="right">
                             <div class="right-top">
-                                <!-- <div class="drag-area"></div> -->
                                 <div class="drag-wrap">
                                     <img src="/assets/images/common/airplane.png" alt="Ai 생성 비행기">
                                 </div>
@@ -480,49 +479,43 @@
             }selectCustom();
 
             // 롤링배너
-            function setFlowBanner(){
-                let bannerWrap = $('.flow-banner');
-                let bannerList = $('.flow-banner .list');
-                let bannerWrapWidth = bannerWrap.width();
-                let bannerListWidth = bannerList.width();
-                const speed = 90;//1초에 몇 픽셀 이동하는지 설정
+            // function setFlowBanner(){
+            //     let bannerWrap = $('.flow-banner');
+            //     let bannerList = $('.flow-banner .list');
+            //     let bannerWrapWidth = bannerWrap.width();
+            //     let bannerListWidth = bannerList.width();
+            //     const speed = 90;//1초에 몇 픽셀 이동하는지 설정
 
-                //리스트 복제
-                let clone = bannerList.clone();
-                bannerWrap.append(clone);
-                flowBannerAct()
+            //     //리스트 복제
+            //     let clone = bannerList.clone();
+            //     bannerWrap.append(clone);
+            //     flowBannerAct()
 
-                //배너 실행 함수
-                function flowBannerAct() {
-                    //무한 반복을 위해 리스트를 복제 후 배너에 추가
-                    if (bannerListWidth < bannerWrapWidth) {
-                        const listCount = Math.ceil(bannerWrapWidth * 2 / bannerListWidth);
-                        for(let i = 2; i < listCount; i++) {
-                            clone = bannerList.clone();
-                            bannerWrap.append(clone);
-                        }
-                    }
-                    bannerWrap.find('.list').css({
-                        'animation':`${bannerListWidth / speed}s linear infinite flowRolling`
-                    });
-                }
-            }setFlowBanner();
+            //     //배너 실행 함수
+            //     function flowBannerAct() {
+            //         //무한 반복을 위해 리스트를 복제 후 배너에 추가
+            //         if (bannerListWidth < bannerWrapWidth) {
+            //             const listCount = Math.ceil(bannerWrapWidth * 2 / bannerListWidth);
+            //             for(let i = 2; i < listCount; i++) {
+            //                 clone = bannerList.clone();
+            //                 bannerWrap.append(clone);
+            //             }
+            //         }
+            //         bannerWrap.find('.list').css({
+            //             'animation':`${bannerListWidth / speed}s linear infinite flowRolling`
+            //         });
+            //     }
+            // }setFlowBanner();
 
             // AI Quick Tools 초기화
             function initializeAi(){
                 // 초기 작업 수행
                 $('.ai-quick-tools .left').removeClass("motion")
                 $('.ai-quick-tools .animate-cursor').css({ top: '0', left: '0' });
-                $('.ai-quick-tools .hide-bg').removeClass('on');
                 $('.ai-quick-tools .show-bg').css({width: '60%', height: '90%'});
-                // $('.ai-quick-tools .show-bg-on').css({width: '462px', height: '310px'});
-                $('.ai-quick-tools .show-bg-on').css({width: '70%', height: '110%'});
-                $('.ai-quick-tools .show-bg-on .circle.top').css({right: '8px', top:'4px'});
-                $('.ai-quick-tools .show-bg-on .circle.bottom-right').css({right: '8px', bottom:'12px'});
-                $('.ai-quick-tools .show-bg-on .circle.bottom-left').css({left: '6px', bottom:'12px'});
+                $('.ai-quick-tools .show-bg-on').css({width: '70%', height: '100%'});
                 $('.ai-quick-tools .typing-wrap').removeClass('on');
                 $('.ai-quick-tools .typing').empty();
-                // $('.ai-quick-tools .typing-wrap button').removeClass("blink");
                 $('.ai-quick-tools .drag-wrap').removeClass("on").css({ width: '0', height: '0' });
                 $('.ai-quick-tools .drag-wrap > img').removeClass("on");
             }
@@ -533,12 +526,6 @@
                 initializeAi(); // 함수 호출 시 초기화
 
                 // 작업 진행
-                var hideBgWidth = $('.ai-quick-tools .hide-bg').innerWidth();
-                var finalWidth = hideBgWidth + 4 * parseFloat($('body').css('font-size')) + 'px';
-
-                var hideBgHeight = $('.ai-quick-tools .hide-bg').innerHeight();
-                var finalHeight = hideBgHeight + 4 * parseFloat($('body').css('font-size')) + 'px';
-
                 var typingBool = false;
                 var typingIdx = 0;
 
@@ -554,7 +541,6 @@
                     top: '92%',
                     left: '68%',
                 }, 1000, function () {
-                    $('.ai-quick-tools .hide-bg').addClass('on');
                     $('.ai-quick-tools .animate-cursor').removeClass("click-motion");
                     $('.ai-quick-tools .show-bg').animate({
                         width: '100%',
@@ -563,20 +549,8 @@
                         duration: 500,
                         start: function () {
                             $('.ai-quick-tools .show-bg-on').animate({
-                                width: finalWidth,
-                                height: finalHeight
-                            }, 500);
-                            $('.ai-quick-tools .show-bg-on .circle.top').animate({
-                                top: '5px',
-                                right: '32px'
-                            }, 500);
-                            $('.ai-quick-tools .show-bg-on .circle.bottom-right').animate({
-                                bottom: '32px',
-                                right: '32px'
-                            }, 500);
-                            $('.ai-quick-tools .show-bg-on .circle.bottom-left').animate({
-                                bottom: '32px',
-                                left: '6px'
+                                width: '110%',
+                                height: '110%'
                             }, 500);
                         }
                     });
@@ -601,7 +575,7 @@
                         $('.ai-quick-tools .drag-wrap').addClass("on");
                         $('.ai-quick-tools .drag-wrap').animate({
                             width: '21vw',
-                            height: '7.1vw'
+                            height: '45%'
                         }, 500, function () {
                             $('.ai-quick-tools .typing-wrap').addClass('on');
                         });
@@ -633,7 +607,6 @@
                         } else {
                             //끝나면 반복종료 
                             clearInterval(tyInt);
-                            // $('.ai-quick-tools .typing-wrap button').addClass("blink");
                         }
                     }
                 });
@@ -647,9 +620,7 @@
                 $('.ai-quick-tools .animate-cursor').animate({
                     left: '91%',
                 }, function() {
-                    // $('.ai-quick-tools .typing-wrap button').removeClass("blink");
                     $('.ai-quick-tools .drag-wrap > img').addClass("on");
-
                     setTimeout(function(){
                         aiQuickTools();
                     }, 2000);

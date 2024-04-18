@@ -287,7 +287,7 @@
                     .con-wrap {
                         position: relative;
                         // height: 60.7rem;
-                        height: clamp(50rem, 31.6vw, 60.7rem);
+                        height: clamp(32rem, 31.6vw, 60.7rem);
                         @include flexbox(row, center, center);
                         gap: 1.2rem;
                         .animate-cursor {
@@ -326,42 +326,26 @@
                             gap: 1.2rem;
                             .right-top {
                                 position: relative;
-                                // width: 74.7rem;
                                 width: clamp(39rem, 39vw, 74.7rem);
                                 height: 50%;
+                                padding: 0 1rem;
+                                border-radius: 1.2rem;
                                 background: url(/assets/images/common/ai_quick_tools_top.png) no-repeat center/cover;
-                                // .drag-area {
-                                //     position: absolute;
-                                //     left: calc(100% - 42.3rem);
-                                //     top: 21px;
-                                //     width: 40.2rem;
-                                //     height: 13.6rem;
-                                //     border: 2px solid #6624D9;
-                                //     background: rgba(255,255,255,0.3);
-                                //     animation: dragE 3s ease infinite;
-                                //     display: flex;
-                                //     align-items: center;
-                                //     justify-content: center;
-                                //     display: none;
-                                //     &.on {
-                                //         display: block;
-                                //     }
-                                // }
                                 .drag-wrap {
                                     position: absolute;
-                                    top: 21px;
-                                    // right: 21px;
+                                    // top: 2vh;
+                                    // top: 21px;
+                                    top: 1vw;
+                                    // top: 2vh;
                                     left: 43%;
                                     width: 0;
                                     height: 0;
-                                    // width: 40.2rem;
-                                    // height: 13.6rem;
-                                    border: 8px dashed #6624D9;
+                                    margin-bottom: 1rem;
+                                    // border: 8px dashed #6624D9;
+                                    border: 0.6vw dashed $purple;
                                     @include flexbox(row, center, center);
                                     opacity: 0;
                                     img {
-                                        // width: 39.9rem;
-                                        // height: 14.5rem;
                                         width: clamp(20rem, 21vw, 39.9rem);
                                         display: none;
                                         &.on {
@@ -374,14 +358,13 @@
                                 }
                                 .typing-wrap {
                                     position: absolute;
-                                    // right: 18px;
+                                    bottom: 1vw;
                                     left: 43%;
-                                    bottom: 18px;
-                                    // width: 406px;
                                     width: clamp(20rem, 21.2vw, 40.6rem);
-                                    // height: 105px;
                                     height: clamp(5rem, 5.5vw, 10.5rem);
-                                    padding: 34px 36px;
+                                    // padding: 34px 36px;
+                                    // padding: 0 3.4rem;
+                                    padding: 0 1.8vw;
                                     font-size: 3.2rem;
                                     font-weight: 700;
                                     color: #14072B;
@@ -390,6 +373,7 @@
                                     background: rgba(255,255,255,0.3);
                                     backdrop-filter: blur(5px);
                                     opacity: 0;
+                                    @include flexbox(row, flex-start, center);
                                     &.on {
                                         opacity: 1;
                                         z-index: 10;
@@ -399,28 +383,24 @@
                                     }
                                     .typing {
                                         font-family: $LGEIHeadline;
-                                        font-size: 3.2rem;
+                                        font-size: clamp(1.2rem, 1.6vw, 3.2rem);
                                         font-weight: 700;
                                         letter-spacing: -0.96px;
-                                        display: inline-block;
+                                        // display: inline-block;
+                                        display: flex;
+                                        align-items: flex-start;
                                         animation: cursorTyping 0.7s infinite;
                                     }
                                     button {
                                         position: absolute;
-                                        // bottom: 21px;
                                         top: 50%;
                                         transform: translateY(-50%);
-                                        right: 36px;
-                                        // width: 6rem;
-                                        width: clamp(2rem, 5.9vw, 6rem);
-                                        // height: 6rem;
-                                        height: clamp(2rem, 5.9vw, 6rem);
+                                        right: clamp(1rem, 1.8vw, 3.6rem);
+                                        width: clamp(2rem, 3.2vw, 6rem);
+                                        height: clamp(2rem, 3.2vw, 6rem);
                                         border-radius: 50%;
                                         border: none;
                                         background: url(/assets/images/icon/ic_arrow_up.png) no-repeat center/contain $purple;
-                                        // &.blink {
-                                        //     animation: blink 1s infinite;
-                                        // }
                                     }
                                 }
                                 #realDragArea {
@@ -430,7 +410,6 @@
                                 }
                             }
                             .right-bottom {
-                                // width: 74.7rem;
                                 width: clamp(39rem, 39vw, 74.7rem);
                                 height: 50%;
                                 .hide-bg {
@@ -439,23 +418,20 @@
                                     height: 100%;
                                     .show-bg {
                                         position: relative;
-                                        // width: 422px;
-                                        // height: 270px;
                                         width: 60%;
                                         height: 90%;
                                         background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat top left;
                                         border-radius: 0 0 12px 0;
+                                        border-right: 8px solid #6624D9;
+                                        border-bottom: 8px solid #6624D9;
                                     }
                                     .show-bg-on {
                                         position: absolute;
-                                        top: -20px;
-                                        left: -20px;
-                                        // width: 462px;
-                                        // height: 310px;
-                                        width: calc(60% + 40px);
-                                        height: calc(60% + 40px);
+                                        top: -5%;
+                                        left: -5%;
+                                        width: 70%;
+                                        height: 100%;
                                         border-radius: 0 0 12px 0;
-                                        opacity: 0;
                                         .circle {
                                             position: absolute;
                                             width: 32px;
@@ -463,44 +439,36 @@
                                             border-radius: 50%;
                                             background: #fff;
                                             border: 8px solid #6624D9;
-                                            z-index: 10;
                                             &.top {
-                                                right: 8px;
-                                                top: 4px;
+                                                // right: 24px;
+                                                right: 1.2vw;
+                                                top: 0;
                                             }
                                             &.bottom-right {
-                                                right: 8px;
-                                                bottom: 12px;
+                                                // right: 24px;
+                                                right: 1.2vw;
+                                                bottom: 4px;
                                             }
                                             &.bottom-left {
-                                                left: 6px;
-                                                bottom: 12px;
+                                                // left: 24px;
+                                                left: 1.2vw;
+                                                bottom: 4px;
                                             }
-                                        }
-                                    }
-                                    &.on {
-                                        .show-bg {
-                                            border-right: 8px solid #6624D9;
-                                            border-bottom: 8px solid #6624D9;
-                                        }
-                                        .show-bg-on {
-                                            opacity: 1;
                                         }
                                     }
                                 }
-                                // .item {
-                                //     width: 100%;
-                                //     height: 100%;
-                                //     background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat center/cover;
-                                // }
                             }
                         }
                         .carrier {
                             position: absolute;
-                            bottom: 4.7rem;
-                            left: 15.6rem;
-                            // width: 45.4rem;
-                            width: clamp(30rem, 23.6vw, 45.4rem);
+                            // bottom: 4.7rem;
+                            // left: 15.6rem;
+                            // bottom: 8%;
+                            // bottom: 5.5vh;
+                            top: 17%;
+                            left: 14%;
+                            width: clamp(24rem, 23.6vw, 45.4rem);
+                            z-index: 12;
                             img {
                                 width: 100%;
                                 height: 100%;
@@ -721,7 +689,8 @@
                                 // height: 100%;
                                 max-height: 100%;
                                 padding: 0;
-                                margin: 0 0.7rem;
+                                // margin: 0 0.7rem;
+                                margin: 0 0.34vw;
                                 @include flexbox(row, flex-end, flex-end);
                                 img {
                                     width: 100%;
@@ -730,16 +699,24 @@
                                 }
                                 &.flow-item01 {
                                     width: 33.2rem;
-                                    height: 50.6rem;
+                                    // width: 17.3vw;
+                                    // width: clamp(10rem,17.3vw,33.2rem);
+                                    // height: 50.6rem;
+                                    height: 100%;
+                                    // height: 26.05vw;
                                     // max-height: 100%;
                                 }
                                 &.flow-item02 {
                                     width: 50.8rem;
-                                    height: 26.5rem;
+                                    // width: 26.08vw;
+                                    // height: 26.5rem;
+                                    height: 52.9%;
+                                    // height: 13.8vw;
                                 }
                                 &.flow-item03 {
                                     width: 33.9rem;
-                                    height: 41.3rem;
+                                    // height: 41.3rem;
+                                    height: 82.4%;
                                 }
                                 &.flow-item04 {
                                     width: 30.7rem;
@@ -747,7 +724,8 @@
                                 }
                                 &.flow-item05 {
                                     width: 28.9rem;
-                                    height: 50.8rem;
+                                    // height: 50.8rem;
+                                    height: 100%;
                                 }
                                 &.flow-item06 {
                                     width: 50.8rem;
@@ -755,7 +733,8 @@
                                 }
                                 &.flow-item07 {
                                     width: 28.9rem;
-                                    height: 50.8rem;
+                                    // height: 50.8rem;
+                                    height: 100%;
                                 }
                                 &.flow-item08 {
                                     width: 30.7rem;
