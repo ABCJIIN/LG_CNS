@@ -83,7 +83,10 @@
                     <div class="con-wrap">
                         <h2 data-aos="fade-up">COP</h2>
                         <p data-aos="fade-up" data-aos-delay="300">생성형 AI와 디자인 편집으로 쉽고 빠르게 고품질 마케팅 콘텐츠를 제작하고<br>자동 콘텐츠 최적화로 마케팅 프로세스를 개선하세요.</p>
-                        <strong class="bg-txt" data-aos="fade-up" data-aos-delay="600">COP</strong>
+                        <div class="bg-txt" data-aos="fade-up" data-aos-delay="600">
+                            <img src="/assets/images/common/intro_bg_txt.png" alt="그라데이션 COP 로고">
+                        </div>
+                        <!-- <strong class="bg-txt" data-aos="fade-up" data-aos-delay="600">COP</strong> -->
                     </div>
                 </div>
             </section>
@@ -145,9 +148,9 @@
                             </div>
                         </div>
                         <div class="typing-wrap">
-                            <p class="typing-txt">꽃을 가득 실은</p>
-                            <p class="typing-txt02">자동차</p>
-                            <p class="typing"></p><br>
+                            <p class="typing-txt">들판에 주차된</p>
+                            <p class="typing-txt02">꽃을 가득 실은 자동차</p>
+                            <p class="typing"></p>
                             <p class="typing02"></p>
                             <button type="button"></button>
                         </div>
@@ -155,13 +158,13 @@
                             <div class="drag-wrap"></div>
                             <img class="flower-img" src="/assets/images/common/flower_car.png" alt="꽃이 들어있는 자동차">
                             <img class="bag-img" src="/assets/images/common/bag_car.png" alt="여행가방이 들어있는 자동차">
-                        </div>
-                        <div class="bag-typing-wrap">
-                            <p class="typing-txt">쌓여있는 여행가방들</p>
-                            <div class="txt-box">
-                                <p class="typing"></p>
+                            <div class="bag-typing-wrap">
+                                <p class="typing-txt">쌓여있는 여행가방들</p>
+                                <div class="txt-box">
+                                    <p class="typing"></p>
+                                </div>
+                                <button type="button">입력</button>
                             </div>
-                            <button type="button">입력</button>
                         </div>
                     </div>
                 </div>
@@ -212,7 +215,7 @@
                     <a class="move-control" name="sec05"></a>
                     <div class="con-wrap">
                         <div class="left">
-                            <div class="seed-image">Seed Image</div>
+                            <div class="seed-image"></div>
                         </div>
                         <div class="right">
                             <div class="generator bg01">
@@ -479,33 +482,33 @@
             }selectCustom();
 
             // 롤링배너
-            // function setFlowBanner(){
-            //     let bannerWrap = $('.flow-banner');
-            //     let bannerList = $('.flow-banner .list');
-            //     let bannerWrapWidth = bannerWrap.width();
-            //     let bannerListWidth = bannerList.width();
-            //     const speed = 90;//1초에 몇 픽셀 이동하는지 설정
+            function setFlowBanner(){
+                let bannerWrap = $('.flow-banner');
+                let bannerList = $('.flow-banner .list');
+                let bannerWrapWidth = bannerWrap.width();
+                let bannerListWidth = bannerList.width();
+                const speed = 90;//1초에 몇 픽셀 이동하는지 설정
 
-            //     //리스트 복제
-            //     let clone = bannerList.clone();
-            //     bannerWrap.append(clone);
-            //     flowBannerAct()
+                //리스트 복제
+                let clone = bannerList.clone();
+                bannerWrap.append(clone);
+                flowBannerAct()
 
-            //     //배너 실행 함수
-            //     function flowBannerAct() {
-            //         //무한 반복을 위해 리스트를 복제 후 배너에 추가
-            //         if (bannerListWidth < bannerWrapWidth) {
-            //             const listCount = Math.ceil(bannerWrapWidth * 2 / bannerListWidth);
-            //             for(let i = 2; i < listCount; i++) {
-            //                 clone = bannerList.clone();
-            //                 bannerWrap.append(clone);
-            //             }
-            //         }
-            //         bannerWrap.find('.list').css({
-            //             'animation':`${bannerListWidth / speed}s linear infinite flowRolling`
-            //         });
-            //     }
-            // }setFlowBanner();
+                //배너 실행 함수
+                function flowBannerAct() {
+                    //무한 반복을 위해 리스트를 복제 후 배너에 추가
+                    if (bannerListWidth < bannerWrapWidth) {
+                        const listCount = Math.ceil(bannerWrapWidth * 2 / bannerListWidth);
+                        for(let i = 2; i < listCount; i++) {
+                            clone = bannerList.clone();
+                            bannerWrap.append(clone);
+                        }
+                    }
+                    bannerWrap.find('.list').css({
+                        'animation':`${bannerListWidth / speed}s linear infinite flowRolling`
+                    });
+                }
+            }setFlowBanner();
 
             // AI Quick Tools 초기화
             function initializeAi(){
@@ -743,28 +746,28 @@
                     $('.digital-content-creator .flower-car').addClass("on");
                     $('.digital-content-creator .animate-cursor').removeClass("click-motion");
                     $('.digital-content-creator .typing-wrap').animate({
-                        left: '37%',
+                        left: '37vw',
                     });
                 });
                 $('.digital-content-creator .animate-cursor').animate({
-                    bottom: '22%',
+                    bottom: '11vw',
                     left: '58.5%',
                 },500);
                 $('.digital-content-creator .animate-cursor').animate({
-                    bottom: '6%',
-                    left: '69%',
+                    bottom: '2vw',
+                    left: '72%',
                 },{
                     duration : 500,
                         start : function() {
                             $('.digital-content-creator .drag-wrap').addClass('on');
                             $('.digital-content-creator .drag-wrap').animate({
-                            width: '20.3rem',
-                            height: '15.1rem',
+                            width: '11.5vw',
+                            height: '48%',
                         });
                     }
                 });
                 $('.digital-content-creator .animate-cursor').animate({
-                    bottom: '-3%',
+                    bottom: '0',
                     left: '72%'
                 },500, function(){
                     $('.digital-content-creator .bag-typing-wrap').addClass("on");
@@ -798,7 +801,7 @@
                     }
                 });
                 $('.digital-content-creator .animate-cursor').animate({
-                    bottom: '-3%',
+                    bottom: '0',
                     left: '72%',
                 }, 800, function(){
                     $('.digital-content-creator .flower-car .flower-img').animate({
