@@ -21,7 +21,8 @@
             width: 100%;
             height: 100vh;
             &:not(.intro) {
-                padding-top: 13.8rem;
+                // padding-top: 13.8rem;
+                padding-top: calc(6.15vw + 4rem);
             }
             .inner {
                 width: 100%;
@@ -41,19 +42,17 @@
                     p {
                         margin: 1.2rem 0 4rem;
                         // font-size: 2rem;
-                        font-size: clamp(12px, 1.1vw, 2rem);
+                        font-size: clamp(1.4rem, 1.1vw, 2rem);
                         letter-spacing: -0.2px;
                         white-space: nowrap;
                     }
                     .use-btn {
-                        // width: 18rem;
                         width: clamp(13rem, 9.4vw, 18rem);
-                        // height: 6rem;
                         height: clamp(4.5rem, 3.2vw, 6rem);
                         padding: 0;
                         border: none;
                         border-radius: .8rem;
-                        // font-size: 2rem;
+                        font-family: $pretendard;
                         font-size: clamp(14px, 1.1vw, 2rem);
                         font-weight: 700;
                         letter-spacing: -0.12px;
@@ -90,44 +89,60 @@
                     border-radius: 50%;
                     &.green {
                         left: 0;
-                        bottom: -20rem;
-                        width: 54.9rem;
-                        height: 78.7rem;
+                        bottom: 10vw;
+                        width: 35vw;
+                        height: 41vw;
                         background: rgba(38, 172, 158, 0.70);
                         filter: blur(200px);
                         z-index: -2;
-                        animation: introCircleGreen 10s infinite;
+                        animation: introCircleGreen 5s infinite linear;
+                        will-change: right, bottom;
                     }
                     &.pink {
-                        left: 40%;
-                        bottom: -20rem;
-                        width: 79.1rem;
-                        height: 77.7rem;
+                        left: 40vw;
+                        bottom: 1vw;
+                        width: 41vw;
+                        height: 41vw;
                         background: linear-gradient(180deg, #FFD8FC 0%, #FF9559 100%);
                         filter: blur(200px);
                         z-index: -1;
-                        animation: introCirclePink 10s infinite;
+                        animation: introCirclePink 5s infinite linear;
+                        will-change: right, bottom;
                     }
                     &.purple {
-                        right: -30rem;
-                        bottom: -20rem;
-                        width: 66.8rem;
-                        height: 66.8rem;
+                        right: -10vw;
+                        bottom: -10vw;
+                        width: 35vw;
+                        height: 35vw;
                         background: rgba(102, 36, 217, 0.70);
                         filter: blur(200px);
                         z-index: -2;
-                        animation: introCirclePurple 10s infinite;
+                        animation: introCirclePurple 5s infinite linear;
+                        will-change: right, bottom;
                     }
                 }
                 .login-wrap {
-                    width: calc(100% - 10rem);
-                    max-width: 1720px;
+                    // width: calc(100% - 10rem);
+                    // max-width: 1720px;
+                    width: 89.5vw;
                     margin: 0 auto;
-                    padding: 1.6rem 4rem;
-                    border-radius: 2rem;
+                    // padding: 1.6rem 4rem;
+                    padding: 0.83vw 2.1vw;
+                    // border-radius: 2rem;
+                    border-radius: 1.05rem;
                     background: $white;
                     box-shadow: 0px 15px 38px 10px rgba(0, 0, 0, 0.07);
                     @include flexbox(row, space-between, center);
+                    h1 {
+                        a {
+                            width: 4.53vw;
+                            // width: 8.7rem;
+                            // height: 4.8rem;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
                     .user-area {
                         @include flexbox(row, center, center);
                         gap: .8rem;
@@ -136,9 +151,12 @@
                             gap: .8rem;
                             button {
                                 font-family: $pretendard;
-                                width: 12rem;
-                                height: 4.8rem;
-                                font-size: 2rem;
+                                width: 6.3vw;
+                                // width: 12rem;
+                                // height: 4.8rem;
+                                height: 2.5vw;
+                                // font-size: 2rem;
+                                font-size: clamp(1.2rem, 1.05vw, 2rem);
                                 border-radius: .8rem;
                                 transition: background .25s;
                                 &.login-btn {
@@ -171,8 +189,10 @@
                         }
                         .select-box {
                             position: relative;
-                            width: 10rem;
-                            height: 4.8rem;
+                            // width: 10rem;
+                            // height: 4.8rem;
+                            width: 5.25vw;
+                            height: 2.5vw;
                             z-index: 10;
                             cursor: pointer;
                             .select-item {
@@ -182,7 +202,8 @@
                                 font-family: $pretendard;
                                 color: $gray06;
                                 font-weight: 700;
-                                font-size: 2rem;
+                                // font-size: 2rem;
+                                font-size: clamp(1.2rem, 1.05vw, 2rem);
                                 border: none;
                                 border-radius: .8rem;
                                 background: $white;
@@ -219,12 +240,14 @@
                                 display: none;
                                 li {
                                     width: 100%;
-                                    height: 4.8rem;
+                                    // height: 4.8rem;
+                                    height: 2.5vw;
                                     border-radius: 0.8rem;
                                     a {
                                         width: 100%;
                                         height: 100%;
-                                        font-size: 2rem;
+                                        // font-size: 2rem;
+                                        font-size: clamp(1.2rem, 1.05vw, 2rem);
                                         font-weight: 500;
                                         color: $gray06;
                                         @include flexbox(row, center, center);
@@ -248,30 +271,27 @@
                 }
                 .con-wrap {
                     width: 100%;
-                    // margin-top: 10rem;
-                    margin-top: clamp(5rem, 5.2vw, 10rem);
+                    height: calc(100% - 4.3vw);
+                    margin-top: 3rem;
                     @include flexbox(column, center, center);
                     h2 {
                         font-family: $LGEIHeadline;
                         font-weight: 800;
-                        // font-size: 15rem;
                         font-size: clamp(12rem, 7.8vw, 15rem);
                         letter-spacing: -1.5px;
                     }
                     p {
-                        // font-size: 2rem;
                         font-size: clamp(1.4rem, 1.1vw, 2rem);
                         text-align: center;
                         line-height: 1.4;
+                        padding-top: 0.63%;
+                        padding-bottom: 2.4%;
                     }
                     .bg-txt {
-                        font-family: $LGEIHeadline;
-                        // font-size: 40rem;
-                        font-size: clamp(32rem, 21vw, 40rem);
-                        font-weight: 700;
-                        background: linear-gradient(#fff 20%, transparent 80%);
-                        color: transparent;
-                        background-clip: text;
+                        width: clamp(20rem, 40.6vw, 78rem);
+                        img {
+                            width: 100%;
+                        }
                     }
                 }
             }
@@ -480,14 +500,15 @@
             }
             &.digital-content-creator {
                 .inner {
-                    @include flexbox(column, flex-end, center);
+                    @include flexbox(column, center, center);
                     .info-wrap {
                         text-align: center;
                     }
                     .con-wrap {
                         @include flexbox(row, center, center);
                         gap: 2.1rem;
-                        padding: 8rem;
+                        // padding: 8rem;
+                        padding: 4.17vw;
                         .animate-cursor {
                             position: absolute;
                             bottom: 0;
@@ -502,9 +523,8 @@
                         }
                         .empty {
                             position: relative;
-                            width: 40rem;
-                            height: 34.9rem;
-                            font-family: $LGEIHeadline;
+                            width: 20.8vw;
+                            height: 18.2vw;
                             font-size: 8rem;
                             font-weight: 700;
                             color: #9B9C9D;
@@ -516,16 +536,15 @@
                                 position: absolute;
                                 bottom: -40%;
                                 left: -100%;
-                                // left: -6px;
-                                // top: -6px;
-                                width: 40rem;
-                                height: 34.9rem;
+                                width: 20.8vw;
+                                height: 18.2vw;
                                 border-radius: 1.4rem;
                                 background: #FF9559;
                                 img {
                                     position: absolute;
                                     left: 0;
                                     bottom: 0;
+                                    width: 100%;
                                 }
                             }
                         }
@@ -533,15 +552,18 @@
                             position: absolute;
                             bottom: 3rem;
                             left: 50%;
+                            left: 0;
                             transform: translateX(-50%);
-                            width: 48.3rem;
-                            height: 15rem;
-                            padding: 3.3rem 3.6rem;
+                            width: clamp(20rem, 25.2vw, 48.3rem);
+                            height: clamp(5rem, 7.8vw, 15rem);
+                            padding: 1.72vw 1.88vw;
                             border-radius: 1.4rem;
                             border: 2px solid rgba(191, 191, 191, 0.94);
                             background: rgba(255, 255, 255, 0.30);
                             backdrop-filter: blur(6px);
                             opacity: 0;
+                            @include flexbox(column, center, flex-start);
+                            gap: 0.9vw;
                             &.on {
                                 opacity: 1;
                                 z-index: 10;
@@ -550,11 +572,11 @@
                                 display: none;
                             }
                             .typing, .typing02 {
-                                font-family: $LGEIHeadline;
-                                font-size: 3.2rem;
+                                font-size: clamp(1.2rem, 1.6vw, 3.2rem);
                                 font-weight: 700;
+                                color: $black;
                                 letter-spacing: -0.96px;
-                                line-height: 1.3;
+                                line-height: clamp(1.2rem, 1.6vw, 3.2rem);
                                 display: inline-block;
                                 &.on {
                                     animation: cursorTyping 0.7s infinite;
@@ -565,33 +587,33 @@
                                 top: 50%;
                                 right: 2.4rem;
                                 transform: translateY(-50%);
-                                width: 9.5rem;
-                                height: 9.5rem;
+                                width: 4.95vw;
+                                height: 4.95vw;
                                 border-radius: 50%;
                                 border: none;
                                 background: url(/assets/images/icon/ic_arrow_diagonal.png) no-repeat center/contain $purple;
-                                // &.blink {
-                                //     animation: blink 1s infinite;
-                                // }
                             }
                         }
                         .flower-car {
                             position: relative;
-                            width: 63.2rem;
-                            height: 34.9rem;
+                            // width: 63.2rem;
+                            width: 32.95vw;
+                            // height: 34.9rem;
+                            height: 18.2vw;
                             display: none;
                             &.on {
                                 display: block;
                             }
                             .drag-wrap {
                                 position: absolute;
-                                left: 44%;
-                                top: 34%;
+                                top: 6vw;
+                                left: 42%;
                                 // width: 20.3rem;
                                 // height: 15.1rem;
                                 width: 0;
                                 height: 0;
-                                border: 8px dashed $purple;
+                                // border: 8px dashed $purple;
+                                border: 0.6vw dashed $purple;
                                 z-index: 10;
                                 display: none;
                                 &.on {
@@ -604,57 +626,59 @@
                                 left: 0;
                                 animation: all 1s;
                                 &.flower-img {
+                                    width: 100%;
                                     opacity: 1;
                                 }
                                 &.bag-img {
+                                    width: 100%;
                                     opacity: 0;
                                 }
                             }
-                        }
-                        .bag-typing-wrap {
-                            position: absolute;
-                            right: 25%;
-                            bottom: 5%;
-                            width: 39.9rem;
-                            height: 7.9rem;
-                            border-radius: 1.4rem;
-                            background: $white;
-                            @include flexbox(row, center, center);
-                            gap: 8px;
-                            box-shadow: 0px 2px 6px 0px rgba(184, 191, 206, 0.40);
-                            opacity: 0;
-                            &.on {
-                                opacity: 1;
-                            }
-                            .typing-txt {
-                                display: none;
-                            }
-                            .txt-box {
-                                width: 24.7rem;
-                                height: 5.5rem;
-                                border-radius: 8px;
-                                border: 1px solid #E6E6E6;
-                                .typing {
-                                    margin: 1.6rem;
-                                    font-family: $LGEIHeadline;
-                                    font-size: 2rem;
-                                    font-weight: 700;
-                                    display: inline-block;
-                                    animation: cursorTyping 0.7s infinite;
+                            .bag-typing-wrap {
+                                position: absolute;
+                                right: 2vw;
+                                bottom: -2vw;
+                                width: clamp(10rem, 20.8vw, 39.9rem);
+                                height: clamp(2rem, 4.12vw, 7.9rem);
+                                // border-radius: 1.4rem;
+                                border-radius: 0.8vw;
+                                background: $white;
+                                @include flexbox(row, center, center);
+                                gap: 8px;
+                                box-shadow: 0px 2px 6px 0px rgba(184, 191, 206, 0.40);
+                                opacity: 0;
+                                &.on {
+                                    opacity: 1;
                                 }
-                            }
-                            button {
-                                width: 12rem;
-                                height: 5.5rem;
-                                color: $white;
-                                font-size: 2rem;
-                                letter-spacing: -0.12px;
-                                border-radius: 8px;
-                                border: none;
-                                background: #3D1682;
-                                // &.blink {
-                                //     animation: blink .25s infinite;
-                                // }
+                                .typing-txt {
+                                    display: none;
+                                }
+                                .txt-box {
+                                    width: clamp(10rem, 12.97vw, 24.7rem);
+                                    height: clamp(1rem, 2.87vw, 5.5rem);
+                                    // border-radius: 8px;
+                                    border-radius: 0.5vw;
+                                    border: 1px solid #E6E6E6;
+                                    @include flexbox(row, flex-start, center);
+                                    padding-left: 0.83vw;
+                                    .typing {
+                                        font-family: $LGEIHeadline;
+                                        font-size: clamp(1.4rem, 1.1vw, 2rem);
+                                        font-weight: 700;
+                                        display: inline-block;
+                                        animation: cursorTyping 0.7s infinite;
+                                    }
+                                }
+                                button {
+                                    width: clamp(5rem, 6.25vw, 12rem);
+                                    height: clamp(1rem, 2.87vw, 5.5rem);
+                                    color: $white;
+                                    font-size: clamp(1.4rem, 1.1vw, 2rem);
+                                    letter-spacing: -0.12px;
+                                    border-radius: 8px;
+                                    border: none;
+                                    background: #3D1682;
+                                }
                             }
                         }
                     }
@@ -674,7 +698,6 @@
                         position: relative;
                         width: 100%;
                         height: calc(100% - 23.2rem);
-                        // height: auto;
                         // height: 45rem;
                         // overflow: hidden;
                         display: flex;
@@ -685,64 +708,60 @@
                             @include flexbox(row, center, flex-end);
                             li {
                                 white-space: nowrap;
-                                // width: 100%;
-                                // height: 100%;
                                 max-height: 100%;
                                 padding: 0;
-                                // margin: 0 0.7rem;
                                 margin: 0 0.34vw;
                                 @include flexbox(row, flex-end, flex-end);
                                 img {
-                                    width: 100%;
+                                    // width: 100%;
                                     height: 100%;
-                                    object-fit: contain;
+                                    // object-fit: contain;
                                 }
                                 &.flow-item01 {
-                                    width: 33.2rem;
-                                    // width: 17.3vw;
-                                    // width: clamp(10rem,17.3vw,33.2rem);
+                                    // width: 33.2rem;
                                     // height: 50.6rem;
                                     height: 100%;
-                                    // height: 26.05vw;
-                                    // max-height: 100%;
                                 }
                                 &.flow-item02 {
-                                    width: 50.8rem;
-                                    // width: 26.08vw;
+                                    // width: 50.8rem;
                                     // height: 26.5rem;
                                     height: 52.9%;
                                     // height: 13.8vw;
                                 }
                                 &.flow-item03 {
-                                    width: 33.9rem;
+                                    // width: 33.9rem;
                                     // height: 41.3rem;
                                     height: 82.4%;
                                 }
                                 &.flow-item04 {
-                                    width: 30.7rem;
-                                    height: 20.8rem;
+                                    // width: 30.7rem;
+                                    // height: 20.8rem;
+                                    height: 41.5%;
                                 }
                                 &.flow-item05 {
-                                    width: 28.9rem;
+                                    // width: 28.9rem;
                                     // height: 50.8rem;
                                     height: 100%;
                                 }
                                 &.flow-item06 {
-                                    width: 50.8rem;
-                                    height: 26.5rem;
+                                    // width: 50.8rem;
+                                    // height: 26.5rem;
+                                    height: 53%;
                                 }
                                 &.flow-item07 {
-                                    width: 28.9rem;
+                                    // width: 28.9rem;
                                     // height: 50.8rem;
                                     height: 100%;
                                 }
                                 &.flow-item08 {
-                                    width: 30.7rem;
-                                    height: 20.8rem;
+                                    // width: 30.7rem;
+                                    // height: 20.8rem;
+                                    height: 41.5%;
                                 }
                                 &.flow-item09 {
-                                    width: 33.9rem;
-                                    height: 41.3rem;
+                                    // width: 33.9rem;
+                                    // height: 41.3rem;
+                                    height: 82.4%;
                                 }
                             }
                         }
@@ -758,9 +777,11 @@
                     .con-wrap {
                         position: relative;
                         width: calc(100% - 2rem);
-                        max-width: 1521px;
+                        // max-width: 1521px;
+                        max-width: 80.77%;
                         height: calc(100% - 2rem);
-                        max-height: 723px;
+                        // max-height: 723px;
+                        max-height: 93.53%;
                         @include flexbox(row, center, center);
                         gap: 0;
                         border-radius: 2rem;
@@ -770,14 +791,10 @@
                             height: 100%;
                             background: url(/assets/images/common/generator_left_bg.png) no-repeat right;
                             .seed-image {
-                                width: 18rem;
-                                height: 6rem;
+                                width: 9.4vw;
+                                height: 3.13vw;
+                                background: url(/assets/images/common/seed_image_tag.png) no-repeat center/contain;
                                 margin: 2.4rem;
-                                border-radius: 1.4rem;
-                                @include flexbox(row, center, center);
-                                border: 2px solid rgba(191, 191, 191, 0.94);
-                                background: rgba(255, 255, 255, 0.30);
-                                backdrop-filter: blur(6px);
                             }
                         }
                         .right {
@@ -797,6 +814,7 @@
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
+                            text-align: center;
                         }
                     }
                 }
@@ -1003,7 +1021,8 @@
                 @include flexbox(column, center, center);
                 gap: 1.4rem;
                 .tit {
-                    font-size: 3rem;
+                    font-size: 1.56vw;
+                    // font-size: 3rem;
                     color: #E9DDFF;
                     letter-spacing: -0.3px;
                     strong {
@@ -1013,13 +1032,23 @@
                 }
                 .contact {
                     color: $white;
-                    font-size: 2rem;
+                    // font-size: 2rem;
+                    font-size: 1.05vw;
                     font-weight: 500;
                     letter-spacing: -0.2px;
                     a {
                         color: #BDFF00;
                         text-decoration: underline;
                     }
+                }
+            }
+            .img-wrap {
+                // width: 18.2rem;
+                width: 9.5vw;
+                // height: 13.1rem;
+                height: 6.82vw;
+                img {
+                    width: 100%;
                 }
             }
         }
@@ -1029,11 +1058,19 @@
 footer {
     background: #343435;
     .inner {
-        padding: 4rem 10rem;
+        // padding: 4rem 10rem;
+        padding: 2.09vw 5.25vw;
         @include flexbox(row, space-between, center);
         .left {
             @include flexbox(row, flex-start, center);
             gap: 4.3rem;
+            .logo-wrap {
+                width: 5.21vw;
+                height: 3.13vw;
+                img {
+                    width: 100%;
+                }
+            }
             .info-wrap {
                 ul {
                     @include flexbox(row, flex-start, center);
@@ -1043,7 +1080,7 @@ footer {
                         position: relative;
                         color: $white;
                         font-weight: 700;
-                        font-size: 1.6rem;
+                        font-size: clamp(1.4rem, 0.84vw, 1.6rem);
                         letter-spacing: -0.16px;
                         &:first-child {
                             &::after {
@@ -1059,7 +1096,7 @@ footer {
                 }
                 p {
                     color: $white;
-                    font-size: 1.6rem;
+                    font-size: clamp(1.4rem, 0.84vw, 1.6rem);
                     letter-spacing: -0.16px;
                 }
             }
@@ -1071,17 +1108,20 @@ footer {
                 background: rgba(255, 255, 255, 0.10);
                 span {
                     color: $white;
-                    font-size: 1.6rem;
+                    // font-size: 1.6rem;
+                    font-size: clamp(1.4rem, 0.84vw, 1.6rem);
                     letter-spacing: -0.16px;
                     opacity: 0.6;
                 }
                 p {
                     margin-top: .6rem;
                     color: $white;
-                    font-size: 1.6rem;
+                    // font-size: 1.6rem;
+                    font-size: clamp(1.4rem, 0.84vw, 1.6rem);
                     a {
                         color: $white;
-                        font-size: 2rem;
+                        // font-size: 2rem;
+                        font-size: clamp(1.4rem, 1.1vw, 2rem);
                         font-weight: 700;
                         letter-spacing: -0.2px;
                     }
@@ -1096,13 +1136,12 @@ footer {
     bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 10rem);
-    max-width: 100rem;
-    height: 11.8rem;
-    margin: 0 auto;
+    height: 6.15vw;
     z-index: 888;
     ul {
-        width: 100%;
+        // width: 100%;
+        // padding: 0 3.75rem;
+        padding: 0 1.95vw;
         height: 100%;
         border-radius: 2rem;
         backdrop-filter: blur(5px);
@@ -1113,11 +1152,17 @@ footer {
             a {
                 font-family: $LGEIHeadline;
                 color: $white;
-                font-size: 1.6rem;
+                font-size: clamp(1.2rem, 0.84vw, 1.6rem);
                 font-weight: 600;
                 text-align: center;
-                padding: 0 4.8rem;
+                padding: 0 2.5vw;
                 @include flexbox(column, center, center);
+                img {
+                    width: 2.71vw;
+                }
+                span {
+                    white-space: nowrap;
+                }
             }
             &:not(:last-child) {
                 a {
@@ -1128,7 +1173,7 @@ footer {
                         right: 0;
                         transform: translateY(-50%);
                         width: 1px;
-                        height: 6rem;
+                        height: 3.1vw;
                         background: rgba(255, 255, 255, 0.30);
                     }
                 }
