@@ -302,6 +302,7 @@
                     @include flexbox(row, center, center);
                     // gap: 7.9rem;
                     gap: clamp(4rem, 4.2vw, 7.9rem);
+                    overflow: hidden;
                     .info-wrap {
                         text-align: left;
                     }
