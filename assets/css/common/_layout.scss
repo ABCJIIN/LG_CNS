@@ -7,7 +7,7 @@
         width: 6rem;
         height: 6rem;
         border-radius: 50%;
-        background: url(/assets/images/icon/ic_arrow_top.png) no-repeat center $white;
+        background: url(./assets/images/icon/ic_arrow_top.png) no-repeat center $white;
         filter: drop-shadow(0px 7px 16px rgba(0, 0, 0, 0.18));
         cursor: pointer;
         z-index: 999;
@@ -216,7 +216,7 @@
                                     display: inline-block;
                                     width: 2.4rem;
                                     height: 2.4rem;
-                                    background: url(/assets/images/icon/ic_arrow.png) no-repeat center/contain;
+                                    background: url(./assets/images/icon/ic_arrow.png) no-repeat center/contain;
                                     transition: all .25s;
                                 }
                                 &.on{
@@ -297,7 +297,7 @@
                 }
             }
             &.ai-quick-tools {
-                background: url(/assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
+                background: url(./assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
                 .inner {
                     @include flexbox(row, center, center);
                     // gap: 7.9rem;
@@ -317,7 +317,7 @@
                             left: 12rem;
                             width: 12rem;
                             height: 12rem;
-                            background: url(/assets/images/icon/ic-cursors.png) no-repeat center/contain;
+                            background: url(./assets/images/icon/ic-cursors.png) no-repeat center/contain;
                             z-index: 20;
                             &.click-motion {
                                 animation: animateCursor .3s;
@@ -333,11 +333,11 @@
                             .item {
                                 width: 100%;
                                 height: 100%;
-                                background: url(/assets/images/common/ai_quick_tools_left.png) no-repeat center/cover;
+                                background: url(./assets/images/common/ai_quick_tools_left.png) no-repeat center/cover;
                             }
                             &.motion {
                                 .item {
-                                    background: url(/assets/images/common/left_remove.png) no-repeat center/cover;
+                                    background: url(./assets/images/common/left_remove.png) no-repeat center/cover;
                                 }
                             }
                         }
@@ -351,7 +351,7 @@
                                 height: 50%;
                                 padding: 0 1rem;
                                 border-radius: 1.2rem;
-                                background: url(/assets/images/common/ai_quick_tools_top.png) no-repeat center/cover;
+                                background: url(./assets/images/common/ai_quick_tools_top.png) no-repeat center/cover;
                                 .drag-wrap {
                                     position: absolute;
                                     // top: 2vh;
@@ -421,7 +421,7 @@
                                         height: clamp(2rem, 3.2vw, 6rem);
                                         border-radius: 50%;
                                         border: none;
-                                        background: url(/assets/images/icon/ic_arrow_up.png) no-repeat center/contain $purple;
+                                        background: url(./assets/images/icon/ic_arrow_up.png) no-repeat center/contain $purple;
                                     }
                                 }
                                 #realDragArea {
@@ -441,7 +441,7 @@
                                         position: relative;
                                         width: 60%;
                                         height: 90%;
-                                        background: url(/assets/images/common/ai_quick_tools_bottom.png) no-repeat top left;
+                                        background: url(./assets/images/common/ai_quick_tools_bottom.png) no-repeat top left;
                                         border-radius: 0 0 12px 0;
                                         border-right: 8px solid #6624D9;
                                         border-bottom: 8px solid #6624D9;
@@ -516,7 +516,7 @@
                             left: 38%;
                             width: 12rem;
                             height: 12rem;
-                            background: url(/assets/images/icon/ic-cursors.png) no-repeat center/contain;
+                            background: url(./assets/images/icon/ic-cursors.png) no-repeat center/contain;
                             z-index: 20;
                             &.click-motion {
                                 animation: animateCursor .3s;
@@ -592,7 +592,7 @@
                                 height: 4.95vw;
                                 border-radius: 50%;
                                 border: none;
-                                background: url(/assets/images/icon/ic_arrow_diagonal.png) no-repeat center/contain $purple;
+                                background: url(./assets/images/icon/ic_arrow_diagonal.png) no-repeat center/contain $purple;
                             }
                         }
                         .flower-car {
@@ -790,11 +790,11 @@
                         .left {
                             width: 50%;
                             height: 100%;
-                            background: url(/assets/images/common/generator_left_bg.png) no-repeat right;
+                            background: url(./assets/images/common/generator_left_bg.png) no-repeat right;
                             .seed-image {
                                 width: 9.4vw;
                                 height: 3.13vw;
-                                background: url(/assets/images/common/seed_image_tag.png) no-repeat center/contain;
+                                background: url(./assets/images/common/seed_image_tag.png) no-repeat center/contain;
                                 margin: 2.4rem;
                             }
                         }
@@ -802,7 +802,7 @@
                             position: relative;
                             width: 50%;
                             height: 100%;
-                            background: url(/assets/images/common/generator_bg01.png) no-repeat left 62%;
+                            background: url(./assets/images/common/generator_bg01.png) no-repeat left 62%;
                             .generator {
                                 position: absolute;
                                 top: -100%;
@@ -836,7 +836,7 @@
                     > .con-wrap {
                         width: 108.8rem;
                         height: 58.7rem;
-                        background: url(/assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
+                        background: url(./assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
                         .graph {
                             position: absolute;
                             min-width: 27.2rem;
@@ -994,7 +994,7 @@
                                     display: inline-block;
                                     width: 2rem;
                                     height: 2rem;
-                                    background: url(/assets/images/icon/ic_checkbox.png) no-repeat center/contain;
+                                    background: url(./assets/images/icon/ic_checkbox.png) no-repeat center/contain;
                                 }
                             }
                             .count {
