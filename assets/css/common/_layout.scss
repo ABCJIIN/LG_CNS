@@ -1,5 +1,5 @@
 .wrapper {
-    overflow: hidden;
+    // overflow: hidden;
     .top-btn {
         position: fixed;
         bottom: 7rem;
@@ -16,6 +16,7 @@
     main {
         width: 100%;
         height: 100%;
+        overflow: hidden;
         section {
             position: relative;
             width: 100%;
@@ -27,10 +28,10 @@
             .inner {
                 width: 100%;
                 height: 100%;
-                .move-control {
-                    position: absolute;
-                    top: 0;
-                }
+                // .move-control {
+                //     position: absolute;
+                //     top: 0;
+                // }
                 .info-wrap {
                     strong {
                         font-family: $LGEIHeadline;
@@ -801,7 +802,7 @@
                             position: relative;
                             width: 50%;
                             height: 100%;
-                            background: url(/assets/images/common/generator_bg01.png) no-repeat left;
+                            background: url(/assets/images/common/generator_bg01.png) no-repeat left 62%;
                             .generator {
                                 position: absolute;
                                 top: -100%;
@@ -901,6 +902,8 @@
                                 }
                                 .chart-wrap {
                                     position: relative;
+                                    width: 13.3rem;
+                                    height: 13.3rem;
                                     span {
                                         position: absolute;
                                         top: 53%;
