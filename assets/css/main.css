@@ -151,7 +151,7 @@ body {
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
-  background: url(./assets/images/icon/ic_arrow_top.png) no-repeat center #ffffff;
+  background: url(../images/icon/ic_arrow_top.png) no-repeat center #ffffff;
   filter: drop-shadow(0px 7px 16px rgba(0, 0, 0, 0.18));
   cursor: pointer;
   z-index: 999;
@@ -356,7 +356,7 @@ body {
   display: inline-block;
   width: 2.4rem;
   height: 2.4rem;
-  background: url(./assets/images/icon/ic_arrow.png) no-repeat center/contain;
+  background: url(../images/icon/ic_arrow.png) no-repeat center/contain;
   transition: all 0.25s;
 }
 .wrapper main section.intro .login-wrap .user-area .select-box .select-item.on::after {
@@ -430,7 +430,7 @@ body {
   width: 100%;
 }
 .wrapper main section.ai-quick-tools {
-  background: url(./assets/images/common/ai-quick-tools-bg.png) no-repeat center/cover;
+  background: url(../images/common/ai-quick-tools-bg.png) no-repeat center/cover;
 }
 .wrapper main section.ai-quick-tools .inner {
   display: flex;
@@ -457,7 +457,7 @@ body {
   left: 12rem;
   width: 12rem;
   height: 12rem;
-  background: url(./assets/images/icon/ic-cursors.png) no-repeat center/contain;
+  background: url(../images/icon/ic-cursors.png) no-repeat center/contain;
   z-index: 20;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .animate-cursor.click-motion {
@@ -473,10 +473,10 @@ body {
 .wrapper main section.ai-quick-tools .inner .con-wrap .left .item {
   width: 100%;
   height: 100%;
-  background: url(./assets/images/common/ai_quick_tools_left.png) no-repeat center/cover;
+  background: url(../images/common/ai_quick_tools_left.png) no-repeat center/cover;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .left.motion .item {
-  background: url(./assets/images/common/left_remove.png) no-repeat center/cover;
+  background: url(../images/common/left_remove.png) no-repeat center/cover;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right {
   height: 100%;
@@ -492,7 +492,7 @@ body {
   height: 50%;
   padding: 0 1rem;
   border-radius: 1.2rem;
-  background: url(./assets/images/common/ai_quick_tools_top.png) no-repeat center/cover;
+  background: url(../images/common/ai_quick_tools_top.png) no-repeat center/cover;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top .drag-wrap {
   position: absolute;
@@ -564,7 +564,7 @@ body {
   height: clamp(2rem, 3.2vw, 6rem);
   border-radius: 50%;
   border: none;
-  background: url(./assets/images/icon/ic_arrow_up.png) no-repeat center/contain #6624D9;
+  background: url(../images/icon/ic_arrow_up.png) no-repeat center/contain #6624D9;
 }
 .wrapper main section.ai-quick-tools .inner .con-wrap .right .right-top #realDragArea {
   position: absolute;
@@ -584,7 +584,7 @@ body {
   position: relative;
   width: 60%;
   height: 90%;
-  background: url(./assets/images/common/ai_quick_tools_bottom.png) no-repeat top left;
+  background: url(../images/common/ai_quick_tools_bottom.png) no-repeat top left;
   border-radius: 0 0 12px 0;
   border-right: 8px solid #6624D9;
   border-bottom: 8px solid #6624D9;
@@ -653,7 +653,7 @@ body {
   left: 38%;
   width: 12rem;
   height: 12rem;
-  background: url(./assets/images/icon/ic-cursors.png) no-repeat center/contain;
+  background: url(../images/icon/ic-cursors.png) no-repeat center/contain;
   z-index: 20;
 }
 .wrapper main section.digital-content-creator .inner .con-wrap .animate-cursor.click-motion {
@@ -737,7 +737,7 @@ body {
   height: 4.95vw;
   border-radius: 50%;
   border: none;
-  background: url(./assets/images/icon/ic_arrow_diagonal.png) no-repeat center/contain #6624D9;
+  background: url(../images/icon/ic_arrow_diagonal.png) no-repeat center/contain #6624D9;
 }
 .wrapper main section.digital-content-creator .inner .con-wrap .flower-car {
   position: relative;
@@ -921,19 +921,19 @@ body {
 .wrapper main section.re-generator .inner .con-wrap .left {
   width: 50%;
   height: 100%;
-  background: url(./assets/images/common/generator_left_bg.png) no-repeat right;
+  background: url(../images/common/generator_left_bg.png) no-repeat right;
 }
 .wrapper main section.re-generator .inner .con-wrap .left .seed-image {
   width: 9.4vw;
   height: 3.13vw;
-  background: url(./assets/images/common/seed_image_tag.png) no-repeat center/contain;
+  background: url(../images/common/seed_image_tag.png) no-repeat center/contain;
   margin: 2.4rem;
 }
 .wrapper main section.re-generator .inner .con-wrap .right {
   position: relative;
   width: 50%;
   height: 100%;
-  background: url(./assets/images/common/generator_bg01.png) no-repeat left 62%;
+  background: url(../images/common/generator_bg01.png) no-repeat left 62%;
 }
 .wrapper main section.re-generator .inner .con-wrap .right .generator {
   position: absolute;
@@ -970,7 +970,7 @@ body {
 .wrapper main section.campaign-optimizer .inner > .con-wrap {
   width: 108.8rem;
   height: 58.7rem;
-  background: url(./assets/images/common/campaign_optimizer_bg.png) no-repeat center/contain;
+  background: url(../images/common/campaign_optimizer_bg.png) no-repeat center/contain;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .graph {
   position: absolute;
@@ -1100,7 +1100,7 @@ body {
   display: inline-block;
   width: 2rem;
   height: 2rem;
-  background: url(./assets/images/icon/ic_checkbox.png) no-repeat center/contain;
+  background: url(../images/icon/ic_checkbox.png) no-repeat center/contain;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .total .count {
   text-align: right;
