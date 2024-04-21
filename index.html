@@ -859,10 +859,10 @@
 
                 var h = $(document).scrollTop();
 
-                if(h > 2760 && h < 3300 && !generatorCalled) { // 플래그 변수가 false일 때만 호출
+                if(h > 3360 && h < 3900 && !generatorCalled) { // 플래그 변수가 false일 때만 호출
                     animateGenerators($(".generator").eq(0), 800);
                     generatorCalled = true; // 플래그 변수 갱신
-                } else if ((h <= 2760 || h >= 3300) && generatorCalled) {
+                } else if ((h <= 3360 || h >= 3900) && generatorCalled) {
                     $(".generator").stop(); // 현재 애니메이션 정지
                     $(".generator").css("top", "-100%"); // 위치 초기화
                     generatorCalled = false; // 플래그 변수 재설정
@@ -890,7 +890,7 @@
 
                 var h = $(document).scrollTop();
 
-                if (h > 3490 && h < 5000 && !chartCalled) {
+                if (h > 4300 && h < 6000 && !chartCalled) {
                     setTimeout(function(){
                         chartTotalCount();
                     },1500);
@@ -943,7 +943,7 @@
                         });
                     }, 1100); // 2초 뒤에 실행
                     chartCalled2 = true; // 플래그 변수 갱신
-                } else if ((h <= 3490 || h >= 5000) && chartCalled) {
+                } else if ((h <= 4300 || h >= 6000) && chartCalled) {
                     chartCalled = false;
                     chartCalled1 = false;
                     chartCalled2 = false;
