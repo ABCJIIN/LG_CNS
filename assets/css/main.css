@@ -23,8 +23,7 @@ body {
   overflow: hidden;
   position: absolute;
   clip: rect(0, 0, 0, 0);
-  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
-          clip-path: polygon(0 0, 0 0, 0 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -532,8 +531,7 @@ body {
   border: 2px solid #fff;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   opacity: 0;
   display: flex;
   flex-direction: row;
@@ -628,8 +626,7 @@ body {
 .wrapper main section.ai-quick-tools .inner .con-wrap .carrier img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .wrapper main section.digital-content-creator .inner {
   display: flex;
@@ -641,6 +638,7 @@ body {
   text-align: center;
 }
 .wrapper main section.digital-content-creator .inner .con-wrap {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -650,8 +648,8 @@ body {
 }
 .wrapper main section.digital-content-creator .inner .con-wrap .animate-cursor {
   position: absolute;
-  bottom: 0;
-  left: 38%;
+  left: 0;
+  bottom: -10%;
   width: 12rem;
   height: 12rem;
   background: url(../images/icon/ic-cursors.png) no-repeat center/contain;
@@ -694,7 +692,6 @@ body {
   position: absolute;
   bottom: 3rem;
   left: 50%;
-  left: 0;
   transform: translateX(-50%);
   width: clamp(20rem, 25.2vw, 48.3rem);
   height: clamp(5rem, 7.8vw, 15rem);
@@ -702,8 +699,7 @@ body {
   border-radius: 1.4rem;
   border: 2px solid rgba(191, 191, 191, 0.94);
   background: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   opacity: 0;
   display: flex;
   flex-direction: column;
@@ -1246,8 +1242,7 @@ footer .inner .right .contact p a {
   padding: 0 1.95vw;
   height: 100%;
   border-radius: 2rem;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   background: rgba(5, 6, 9, 0.7);
   display: flex;
   flex-direction: row;
