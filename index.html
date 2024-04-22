@@ -437,15 +437,16 @@
             //스크롤시 top 버튼과 메뉴 위치
             $(window).scroll(function(){
                 
+                var scrollPosition = $(this).scrollTop();
+                var aIQuickToolsTop = $(".ai-quick-tools").offset().top;
+                
                 if ($(this).scrollTop() > 250) {
                 $('.top-btn').fadeIn();
                 } else {
                 $('.top-btn').fadeOut();
                 }
 
-                var scrollPosition = $(this).scrollTop();
-
-                if($(this).scrollTop() >= 640) {
+                if($(this).scrollTop() >= aIQuickToolsTop - 200) {
                     $(".menu-list").css('bottom', 'auto');
                     $(".menu-list").css('top', scrollPosition + 20 + 'px');
                 } else {
@@ -636,11 +637,12 @@
 
             $(window).scroll(function(){
                 var h = $(document).scrollTop();
+                var aIQuickToolsTop = $(".ai-quick-tools").offset().top;
 
-                if(h > 500 && h < 1200 && !aiQuickToolsCalled) {
+                if(h > aIQuickToolsTop - 500 && h < aIQuickToolsTop + 500 && !aiQuickToolsCalled) {
                     aiQuickTools();
                     aiQuickToolsCalled = true; // Update flag variable
-                } else if ((h <= 500 || h >= 1200) && aiQuickToolsCalled) {
+                } else if ((h <= aIQuickToolsTop - 500 || h >= aIQuickToolsTop + 500) && aiQuickToolsCalled) {
                     $('.ai-quick-tools .animate-cursor').clearQueue();
                     aiQuickToolsCalled = false; // Reset the flag when out of range
                 }
@@ -823,11 +825,12 @@
 
             $(window).scroll(function(){
                 var h = $(document).scrollTop();
+                var digitalContentCreatorTop = $(".digital-content-creator").offset().top;
 
-                if(h > 1480 && h < 2230 && !digitalContentCreatorCalled) { // 플래그 변수가 false일 때만 호출
+                if(h > digitalContentCreatorTop - 500 && h < digitalContentCreatorTop + 500 && !digitalContentCreatorCalled) { // 플래그 변수가 false일 때만 호출
                     digitalContentCreator(); // 함수 호출
                     digitalContentCreatorCalled = true; // 플래그 변수 갱신
-                } else if ((h <= 1480 || h >= 2230) && digitalContentCreatorCalled) {
+                } else if ((h <= digitalContentCreatorTop - 500 || h >= digitalContentCreatorTop + 500) && digitalContentCreatorCalled) {
                     $('.digital-content-creator .animate-cursor').clearQueue();
                     digitalContentCreatorCalled = false;
                 }
@@ -858,11 +861,12 @@
             $(window).scroll(function(){
 
                 var h = $(document).scrollTop();
+                var generatorTop = $(".re-generator").offset().top;
 
-                if(h > 3000 && h < 3800 && !generatorCalled) { // 플래그 변수가 false일 때만 호출
+                if(h > generatorTop - 500 && h < generatorTop + 500 && !generatorCalled) { // 플래그 변수가 false일 때만 호출
                     animateGenerators($(".generator").eq(0), 800);
                     generatorCalled = true; // 플래그 변수 갱신
-                } else if ((h <= 3000 || h >= 3800) && generatorCalled) {
+                } else if ((h <= generatorTop - 500 || h >= generatorTop + 500) && generatorCalled) {
                     $(".generator").stop(); // 현재 애니메이션 정지
                     $(".generator").css("top", "-100%"); // 위치 초기화
                     generatorCalled = false; // 플래그 변수 재설정
@@ -889,8 +893,9 @@
             $(window).scroll(function(){
 
                 var h = $(document).scrollTop();
+                var campaignOptimizerTop = $(".campaign-optimizer").offset().top;
 
-                if (h > 3800 && h < 6000 && !chartCalled) {
+                if (h > campaignOptimizerTop - 500 && h < campaignOptimizerTop + 500 && !chartCalled) {
                     setTimeout(function(){
                         chartTotalCount();
                     },1500);
@@ -943,7 +948,7 @@
                         });
                     }, 1100); // 2초 뒤에 실행
                     chartCalled2 = true; // 플래그 변수 갱신
-                } else if ((h <= 3800 || h >= 6000) && chartCalled) {
+                } else if ((h <= campaignOptimizerTop - 500 || h >= campaignOptimizerTop + 500) && chartCalled) {
                     chartCalled = false;
                     chartCalled1 = false;
                     chartCalled2 = false;
