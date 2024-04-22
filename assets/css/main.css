@@ -350,6 +350,9 @@ body {
   gap: 0.3rem;
   transition: background 0.25s;
 }
+.wrapper main section.intro .login-wrap .user-area .select-box .select-item a {
+  color: #68696A;
+}
 .wrapper main section.intro .login-wrap .user-area .select-box .select-item::after {
   content: "";
   display: inline-block;
@@ -1146,6 +1149,7 @@ body {
 .wrapper .apply .inner .txt-wrap .contact a {
   color: #BDFF00;
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .wrapper .apply .inner .img-wrap {
   width: 9.5vw;

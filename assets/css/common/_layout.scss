@@ -211,6 +211,9 @@
                                 @include flexbox(row, center, center);
                                 gap: .3rem;
                                 transition: background .25s;
+                                a {
+                                    color: $gray06;
+                                }
                                 &::after {
                                     content: '';
                                     display: inline-block;
@@ -1043,6 +1046,7 @@
                     a {
                         color: #BDFF00;
                         text-decoration: underline;
+                        text-underline-offset: 4px;
                     }
                 }
             }
