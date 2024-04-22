@@ -507,14 +507,15 @@
                         text-align: center;
                     }
                     .con-wrap {
+                        position: relative;
                         @include flexbox(row, center, center);
                         gap: 2.1rem;
                         // padding: 8rem;
                         padding: 4.17vw;
                         .animate-cursor {
                             position: absolute;
-                            bottom: 0;
-                            left: 38%;
+                            left: 0;
+                            bottom: -10%;
                             width: 12rem;
                             height: 12rem;
                             background: url(../images/icon/ic-cursors.png) no-repeat center/contain;
@@ -554,7 +555,6 @@
                             position: absolute;
                             bottom: 3rem;
                             left: 50%;
-                            left: 0;
                             transform: translateX(-50%);
                             width: clamp(20rem, 25.2vw, 48.3rem);
                             height: clamp(5rem, 7.8vw, 15rem);
