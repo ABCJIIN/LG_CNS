@@ -970,7 +970,7 @@ body {
 .wrapper main section.campaign-optimizer .inner > .con-wrap {
   width: 108.8rem;
   height: 58.7rem;
-  background: url(../images/common/campaign_optimizer_bg.png) no-repeat center/contain;
+  background: url(../images/common/campaign_optimizer_bg.png) no-repeat center bottom/contain;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .graph {
   position: absolute;

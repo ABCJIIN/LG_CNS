@@ -19,7 +19,7 @@
 <body>
     <div class="wrapper">
         <div class="top-btn"></div>
-        <div class="menu-list" data-aos="fade-up" data-aos-delay="900">
+        <div class="menu-list">
             <ul>
                 <li>
                     <a href="javascript:void(0)">
@@ -435,9 +435,8 @@
 
             //스크롤시 top 버튼과 메뉴 위치
             $(window).scroll(function(){
-                
                 var scrollPosition = $(this).scrollTop();
-                var aIQuickToolsTop = $(".ai-quick-tools").offset().top;
+                // var aIQuickToolsTop = $(".ai-quick-tools").offset().top;
                 
                 if (scrollPosition > 250) {
                 $('.top-btn').fadeIn();
@@ -445,7 +444,7 @@
                 $('.top-btn').fadeOut();
                 }
 
-                if(scrollPosition >= aIQuickToolsTop - 10) {
+                if(scrollPosition >= 500) {
                     $(".menu-list").css('bottom', 'auto');
                     $(".menu-list").css('top', scrollPosition + 20 + 'px');
                 } else {
