@@ -436,7 +436,7 @@
             //스크롤시 top 버튼과 메뉴 위치
             $(window).scroll(function(){
                 var scrollPosition = $(this).scrollTop();
-                // var aIQuickToolsTop = $(".ai-quick-tools").offset().top;
+                var aIQuickToolsTop = $(".ai-quick-tools").offset().top;
                 
                 if (scrollPosition > 250) {
                 $('.top-btn').fadeIn();
@@ -444,7 +444,7 @@
                 $('.top-btn').fadeOut();
                 }
 
-                if(scrollPosition >= 500) {
+                if(scrollPosition >= aIQuickToolsTop - 10) {
                     $(".menu-list").css('bottom', 'auto');
                     $(".menu-list").css('top', scrollPosition + 20 + 'px');
                 } else {
