@@ -1143,7 +1143,7 @@ footer {
     position: absolute;
     bottom: 4rem;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) !important;
     height: 6.15vw;
     z-index: 888;
     ul {
@@ -1157,6 +1157,11 @@ footer {
         @include flexbox(row, center, center);
         li {
             position: relative;
+            &.on {
+                a {
+                    opacity: 1;
+                }
+            }
             a {
                 font-family: $LGEIHeadline;
                 color: $white;
@@ -1165,6 +1170,7 @@ footer {
                 text-align: center;
                 padding: 0 2.5vw;
                 @include flexbox(column, center, center);
+                opacity: 0.5;
                 img {
                     width: 2.71vw;
                 }

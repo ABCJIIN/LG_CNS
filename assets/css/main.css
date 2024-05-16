@@ -1238,7 +1238,7 @@ footer .inner .right .contact p a {
   position: absolute;
   bottom: 4rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) !important;
   height: 6.15vw;
   z-index: 888;
 }
@@ -1256,6 +1256,9 @@ footer .inner .right .contact p a {
 .menu-list ul li {
   position: relative;
 }
+.menu-list ul li.on a {
+  opacity: 1;
+}
 .menu-list ul li a {
   font-family: "LGEIHeadline";
   color: #ffffff;
@@ -1267,6 +1270,7 @@ footer .inner .right .contact p a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0.5;
 }
 .menu-list ul li a img {
   width: 2.71vw;
