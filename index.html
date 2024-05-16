@@ -19,8 +19,8 @@
 <body>
     <div class="wrapper">
         <div class="top-btn"></div>
-        <div class="menu-list">
-            <ul data-aos="fade-up" data-aos-delay="900">
+        <div class="menu-list" data-aos="fade-up" data-aos-delay="900">
+            <ul>
                 <li>
                     <a href="javascript:void(0)">
                         <img src="./assets/images/icon/ic_main.png" alt="AI Quick Tools">
@@ -439,13 +439,13 @@
                 var scrollPosition = $(this).scrollTop();
                 var aIQuickToolsTop = $(".ai-quick-tools").offset().top;
                 
-                if ($(this).scrollTop() > 250) {
+                if (scrollPosition > 250) {
                 $('.top-btn').fadeIn();
                 } else {
                 $('.top-btn').fadeOut();
                 }
 
-                if($(this).scrollTop() >= aIQuickToolsTop - 200) {
+                if(scrollPosition >= aIQuickToolsTop - 10) {
                     $(".menu-list").css('bottom', 'auto');
                     $(".menu-list").css('top', scrollPosition + 20 + 'px');
                 } else {
@@ -641,9 +641,11 @@
                 if(h > aIQuickToolsTop - 500 && h < aIQuickToolsTop + 500 && !aiQuickToolsCalled) {
                     aiQuickTools();
                     aiQuickToolsCalled = true; // Update flag variable
+                    $('.menu-list li').eq(0).addClass('on');
                 } else if ((h <= aIQuickToolsTop - 500 || h >= aIQuickToolsTop + 500) && aiQuickToolsCalled) {
                     $('.ai-quick-tools .animate-cursor').clearQueue();
                     aiQuickToolsCalled = false; // Reset the flag when out of range
+                    $('.menu-list li').eq(0).removeClass('on');
                 }
             });
             
@@ -829,9 +831,33 @@
                 if(h > digitalContentCreatorTop - 500 && h < digitalContentCreatorTop + 500 && !digitalContentCreatorCalled) { // 플래그 변수가 false일 때만 호출
                     digitalContentCreator(); // 함수 호출
                     digitalContentCreatorCalled = true; // 플래그 변수 갱신
+                    $('.menu-list li').eq(1).addClass('on');
                 } else if ((h <= digitalContentCreatorTop - 500 || h >= digitalContentCreatorTop + 500) && digitalContentCreatorCalled) {
                     $('.digital-content-creator .animate-cursor').clearQueue();
                     digitalContentCreatorCalled = false;
+                    $('.menu-list li').eq(1).removeClass('on');
+                }
+            });
+
+            //Ads Creater
+
+            $(window).scroll(function(){
+                var h = $(document).scrollTop();
+                var adsCreaterTop = $(".ads-creator").offset().top;
+                // var adsCreaterCalled = false;
+                var threshold = 500; // 임계값 설정
+
+                // 스크롤 위치와 광고 영역의 상대 위치 계산
+                var distanceFromAds = Math.abs(h - adsCreaterTop);
+
+                // 광고 영역이 일정 거리 안에 있으면 메뉴 항목을 활성화
+                if(distanceFromAds < threshold) {
+                    $('.menu-list li').eq(2).addClass('on');
+                    // adsCreaterCalled = true;
+                } else {
+                    // 광고 영역이 일정 거리 바깥에 있으면 메뉴 항목을 비활성화
+                    $('.menu-list li').eq(2).removeClass('on');
+                    // adsCreaterCalled = false;
                 }
             });
 
@@ -865,10 +891,12 @@
                 if(h > generatorTop - 500 && h < generatorTop + 500 && !generatorCalled) { // 플래그 변수가 false일 때만 호출
                     animateGenerators($(".generator").eq(0), 800);
                     generatorCalled = true; // 플래그 변수 갱신
+                    $('.menu-list li').eq(3).addClass('on');
                 } else if ((h <= generatorTop - 500 || h >= generatorTop + 500) && generatorCalled) {
                     $(".generator").stop(); // 현재 애니메이션 정지
                     $(".generator").css("top", "-100%"); // 위치 초기화
                     generatorCalled = false; // 플래그 변수 재설정
+                    $('.menu-list li').eq(3).removeClass('on');
                 }
             });
 
@@ -899,6 +927,7 @@
                         chartTotalCount();
                     },1500);
                     chartCalled = true; // 플래그 변수 갱신
+                    $('.menu-list li').eq(4).addClass('on');
 
                     setTimeout(function(){
                         // 첫 번째 차트
@@ -951,6 +980,7 @@
                     chartCalled = false;
                     chartCalled1 = false;
                     chartCalled2 = false;
+                    $('.menu-list li').eq(4).removeClass('on');
                 }
             });
 
