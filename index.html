@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LG CNS MAIN</title>
+    <link rel="shortcut icon" href="#">
     <!-- jquery cdn -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <!-- chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <!-- <script type="module" src="./assets/js/chart.js"></script> -->
+    <!-- <script type="module" src="./assets/js/chart.umd.js"></script> -->
     <!-- aos -->
     <link rel="stylesheet" href="./assets/css/aos.css">
     <script src="./assets/js/aos.js"></script>
     <!-- 로컬소스 -->
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/reset.css"> 
     <link rel="stylesheet" href="./assets/css/font.css">
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
@@ -299,7 +302,7 @@
                                     </ul>
                                 </div>
                                 <div class="chart-wrap">
-                                    <canvas id="doughnut-chart" width="133" height="133"></canvas>
+                                    <canvas id="doughnut-chart"></canvas>
                                     <span>채널</span>
                                 </div>
                             </div>
@@ -320,7 +323,7 @@
                                     </ul>
                                 </div>
                                 <div class="chart-wrap">
-                                    <canvas id="doughnut-chart02" width="133" height="133"></canvas>
+                                    <canvas id="doughnut-chart02"></canvas>
                                     <span>디바이스</span>
                                 </div>
                             </div>
@@ -866,7 +869,7 @@
 
                 if ($nextElement.length > 0) {
                     $element.animate({
-                        top: '44.6%'
+                        top: '50%'
                     }, animationSpeed, function() {
                         var nextAnimationSpeed = Math.max(animationSpeed - 200, 200);
                         animateGenerators($nextElement, nextAnimationSpeed);
@@ -929,6 +932,10 @@
                     $('.menu-list li').eq(4).addClass('on');
 
                     setTimeout(function(){
+                        let chartStatus = Chart.getChart('doughnut-chart');
+                            if (chartStatus !== undefined) {
+                            chartStatus.destroy();
+                        }
                         // 첫 번째 차트
                         new Chart(document.getElementById("doughnut-chart").getContext('2d'), {
                             type: 'doughnut',
@@ -946,13 +953,17 @@
                                 tooltips: {
                                     enabled: false
                                 },
-                                cutoutPercentage: 65
+                                cutout: 36,
                             }
                         });
                     }, 600);
                     chartCalled1 = true; // 플래그 변수 갱신
 
                     setTimeout(function(){
+                        let chartStatus = Chart.getChart('doughnut-chart02');
+                            if (chartStatus !== undefined) {
+                            chartStatus.destroy();
+                        }
                         // 두 번째 차트
                         new Chart(document.getElementById("doughnut-chart02").getContext('2d'), {
                             type: 'doughnut',
@@ -970,7 +981,7 @@
                                 tooltips: {
                                     enabled: false
                                 },
-                                cutoutPercentage: 65
+                                cutout: 36,
                             }
                         });
                     }, 1100); // 2초 뒤에 실행

@@ -272,7 +272,7 @@ body {
   align-items: center;
 }
 .wrapper main section.intro .login-wrap h1 a {
-  width: 4.53vw;
+  width: clamp(6.5rem, 4.53vw, 8.7rem);
 }
 .wrapper main section.intro .login-wrap h1 a img {
   width: 100%;
@@ -293,9 +293,9 @@ body {
 }
 .wrapper main section.intro .login-wrap .user-area .btn-wrap button {
   font-family: "Pretendard";
-  width: 6.3vw;
-  height: 2.5vw;
-  font-size: clamp(1.2rem, 1.05vw, 2rem);
+  width: clamp(9rem, 6.3vw, 12rem);
+  height: clamp(3.6rem, 2.5vw, 4.8rem);
+  font-size: clamp(1.6rem, 1.05vw, 2rem);
   border-radius: 0.8rem;
   transition: background 0.25s;
 }
@@ -339,7 +339,7 @@ body {
   font-family: "Pretendard";
   color: #68696A;
   font-weight: 700;
-  font-size: clamp(1.2rem, 1.05vw, 2rem);
+  font-size: clamp(1.4rem, 1.05vw, 2rem);
   border: none;
   border-radius: 0.8rem;
   background: #ffffff;
@@ -387,7 +387,7 @@ body {
 .wrapper main section.intro .login-wrap .user-area .select-box .option-list li a {
   width: 100%;
   height: 100%;
-  font-size: clamp(1.2rem, 1.05vw, 2rem);
+  font-size: clamp(1.4rem, 1.05vw, 2rem);
   font-weight: 500;
   color: #68696A;
   display: flex;
@@ -419,14 +419,14 @@ body {
   letter-spacing: -1.5px;
 }
 .wrapper main section.intro .con-wrap p {
-  font-size: clamp(1.4rem, 1.1vw, 2rem);
+  font-size: clamp(1.5rem, 1.1vw, 2rem);
   text-align: center;
   line-height: 1.4;
   padding-top: 0.63%;
   padding-bottom: 2.4%;
 }
 .wrapper main section.intro .con-wrap .bg-txt {
-  width: clamp(20rem, 40.6vw, 78rem);
+  width: clamp(60rem, 40.6vw, 78rem);
 }
 .wrapper main section.intro .con-wrap .bg-txt img {
   width: 100%;
@@ -903,13 +903,21 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  padding-bottom: 5rem;
+}
+@media (max-width: 1600px) {
+  .wrapper main section.re-generator .inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .wrapper main section.re-generator .inner .con-wrap {
   position: relative;
-  width: calc(100% - 2rem);
-  max-width: 80.77%;
-  height: calc(100% - 2rem);
-  max-height: 93.53%;
+  width: 79.17vw;
+  max-width: 1520px;
+  height: clamp(50rem, 36.67vw, 70.4rem);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -921,7 +929,7 @@ body {
 .wrapper main section.re-generator .inner .con-wrap .left {
   width: 50%;
   height: 100%;
-  background: url(../images/common/generator_left_bg.png) no-repeat right;
+  background: url(../images/common/generator_left_bg.png) no-repeat right center/100%;
 }
 .wrapper main section.re-generator .inner .con-wrap .left .seed-image {
   width: 9.4vw;
@@ -933,13 +941,20 @@ body {
   position: relative;
   width: 50%;
   height: 100%;
-  background: url(../images/common/generator_bg01.png) no-repeat left 62%;
+  background: url(../images/common/generator_right_bg.png) no-repeat left center/100%;
 }
 .wrapper main section.re-generator .inner .con-wrap .right .generator {
   position: absolute;
   top: -100%;
   left: 0;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper main section.re-generator .inner .con-wrap .right .generator img {
+  width: 100%;
 }
 .wrapper main section.re-generator .inner .con-wrap .info-wrap {
   position: absolute;
@@ -953,7 +968,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 10rem;
+  padding: 0 5.21vw;
 }
 .wrapper main section.campaign-optimizer .inner .info-wrap {
   display: flex;
@@ -968,15 +983,16 @@ body {
   line-height: 1.4;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap {
-  width: 108.8rem;
-  height: 58.7rem;
+  width: clamp(86rem, 56.67vw, 108.8rem);
+  height: clamp(46.5rem, 30.57vw, 58.7rem);
   background: url(../images/common/campaign_optimizer_bg.png) no-repeat center bottom/contain;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .graph {
   position: absolute;
-  min-width: 27.2rem;
-  min-height: 22.7rem;
+  width: clamp(24.48rem, 14.17vw, 27.2rem);
+  height: clamp(20.43rem, 11.8vw, 22.7rem);
   padding: 1.8rem 2.8rem 3.2rem 1.5rem;
+  padding: 0.94vw 1.46vw 1.67vw 0.78vw;
   border-radius: 0.47rem;
   background: #ffffff;
   box-shadow: 40px 31px 38px 0px rgba(0, 0, 0, 0.15);
@@ -1038,8 +1054,12 @@ body {
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .graph > .con-wrap .chart-wrap {
   position: relative;
-  width: 13.3rem;
-  height: 13.3rem;
+}
+.wrapper main section.campaign-optimizer .inner > .con-wrap .graph > .con-wrap .chart-wrap canvas {
+  width: 6.93vw;
+  height: 6.93vw;
+  min-width: 12rem;
+  min-height: 12rem;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .graph > .con-wrap .chart-wrap span {
   position: absolute;
@@ -1073,9 +1093,11 @@ body {
 .wrapper main section.campaign-optimizer .inner > .con-wrap .total {
   position: absolute;
   right: -6rem;
-  top: 11.7rem;
-  width: 30rem;
-  height: 17.7rem;
+  top: 9rem;
+  min-width: 27rem;
+  width: 15.63vw;
+  min-height: 15.93rem;
+  height: 9.22vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1085,7 +1107,7 @@ body {
   box-shadow: 40px 31px 38px 0px rgba(0, 0, 0, 0.15);
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .total .tit {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 1.15vw, 2.2rem);
   font-weight: 700;
   letter-spacing: -0.132px;
   display: flex;
@@ -1106,11 +1128,11 @@ body {
   text-align: right;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .total .count strong {
-  font-size: 4rem;
+  font-size: clamp(2rem, 2.08vw, 4rem);
   font-weight: 500;
 }
 .wrapper main section.campaign-optimizer .inner > .con-wrap .total .count strong span {
-  font-size: 6rem;
+  font-size: clamp(5rem, 3.13vw, 6rem);
   font-weight: 800;
 }
 .wrapper .apply {
@@ -1142,7 +1164,7 @@ body {
 }
 .wrapper .apply .inner .txt-wrap .contact {
   color: #ffffff;
-  font-size: 1.05vw;
+  font-size: clamp(1.4rem, 1.05vw, 2rem);
   font-weight: 500;
   letter-spacing: -0.2px;
 }
@@ -1240,6 +1262,7 @@ footer .inner .right .contact p a {
   left: 50%;
   transform: translateX(-50%) !important;
   height: 6.15vw;
+  min-height: 9rem;
   z-index: 888;
 }
 .menu-list ul {
@@ -1262,7 +1285,7 @@ footer .inner .right .contact p a {
 .menu-list ul li a {
   font-family: "LGEIHeadline";
   color: #ffffff;
-  font-size: clamp(1.2rem, 0.84vw, 1.6rem);
+  font-size: clamp(1.4rem, 0.84vw, 1.6rem);
   font-weight: 600;
   text-align: center;
   padding: 0 2.5vw;
@@ -1273,6 +1296,7 @@ footer .inner .right .contact p a {
   opacity: 0.5;
 }
 .menu-list ul li a img {
+  min-width: 4rem;
   width: 2.71vw;
 }
 .menu-list ul li a span {
